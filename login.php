@@ -1,17 +1,3 @@
 <?php
-?>
-
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Login</title>
-  </head>
-  <body>
-    <form class="" action="index.html" method="post">
-      <input type="text" name="" value="">
-      <input type="password" name="" value="">
-      <input type="submit" name="" value="">
-    </form>
-  </body>
-</html>
+	declare(strict_types = 1);
+	include_once("login_form.html");
