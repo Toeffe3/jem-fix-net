@@ -1,5 +1,5 @@
 # jem-fix-net
-This is our exams project for engeneering class (in design and web development).
+This is our exam project for engeneering class (in design and web development).
 
 Our task is to contruct a better **Intranet** for _Jem &amp; Fix_.
 
