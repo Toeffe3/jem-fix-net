@@ -9,4 +9,5 @@ It is a proof of concept and **it will not be deployed!**
 
 ### Shared XD Designs
 Here is a list of currently public available XD-designs (Prototypes):
-* [Design 1](https://xd.adobe.com/view/f42684a5-052a-4882-4721-cfa34fd6d9e1-8217/)
+* [Design 1 - Simple](https://xd.adobe.com/view/1897c553-f8fb-4659-5594-ec647dad5cf7-6ea6/)
+* [Design 2 - Flat](https://xd.adobe.com/view/f42684a5-052a-4882-4721-cfa34fd6d9e1-8217/)
