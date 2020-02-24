@@ -2,7 +2,7 @@
 
 ?>
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="da" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title>Welcome</title>
