@@ -24,6 +24,7 @@ if (isset($_GET["logout"])) {
 <html lang="da" dir="ltr">
     <head>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
         <title>Login</title>
     </head>
     <body>
