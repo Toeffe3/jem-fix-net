@@ -28,8 +28,9 @@ if (isset($_GET["logout"])) {
     </head>
     <body>
         <form class="" action="index.php" method="post">
-            <input type="initials" name="initials" placeholder="ansat@jemfixnet.dk"><br>
-            <input type="password" name="password" placeholder="Password"><br>
+            <img src="logo.png" alt="LOGO">
+            <span>Initialer</span><input type="text" name="initials" placeholder="DND"><br>
+            <span>Password</span><input type="password" name="password" placeholder="Password"><br>
             <input type="submit" value="Log ind">
         </form>
     </body>
