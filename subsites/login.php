@@ -20,12 +20,12 @@ if (isset($_GET["logout"])) {
 <html lang="da" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="assets/style.css">
         <title>Login</title>
     </head>
     <body>
         <form class="" action="index.php" method="post">
-            <img src="logo.png" alt="LOGO"><br>
+            <img src="logo.png" alt="LOGO" class="logo"><br>
             <span>Initialer</span><input type="text" name="initials" placeholder="DND"><br>
             <span>Password</span><input type="password" name="password" placeholder="Password"><br>
             <input type="submit" value="Log ind">

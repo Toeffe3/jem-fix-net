@@ -1,3 +1,19 @@
-img{
+html, body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* Color palette */
+.red {color: #E30613;}
+.dark.red {color: #C81C26;}
+.gray {color: #F1F1F1;}
+.dark.gray {color: #707070;}
+.yellow {color: #FFD500;}
+.dark.yellow {color: #DEBE1D;}
+.white {color: #ffffff;}
+.dark.white {color: #000000;}
+
+.logo {
   width: 200px;
 }
