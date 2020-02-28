@@ -1,3 +1,4 @@
 Exclude deployment tools
 *.bat
 *.ftp
+*.html
