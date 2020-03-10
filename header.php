@@ -16,6 +16,6 @@
                 <div class="links">Cyklisk</div>
                 <div class="links">Nyheder</div>
                 <div class="links">Ledere</div>
-                <div class="links">HR<\div>
+                <div class="links">HR</div>
             </center>
         </div>
