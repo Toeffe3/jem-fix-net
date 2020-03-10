@@ -2,13 +2,11 @@ html, body {
     margin: 0;
     padding: 0;
     border: 0;
-
     font-family: 'Bahnschrift';
 }
 a, a:active, a:visited {
     color: inherit;
 }
-
 /* Color palette */
 .red {color: #E30613;}
 .dark.red {color: #C81C26;}
@@ -29,22 +27,26 @@ a, a:active, a:visited {
 .bg-dark.bg-white {background-color: #000000;}
 
 .logo {
-    height: 80px;
+    height: 40px;
 }
-
 #header {
     width: 100vw;
-    height: 80px;
+    height: 40px;
 }
-
 #header * {
     display: inline-block;
 }
-
 #header span {
-    font-size: 36px;
+    font-size: 28px;
     position: relative;
-    top: -0.75em;
+    top: -0.35em;
+}
+#header #contact {
+    float: right;
+    text-align: right;
+    padding-right: 20px;
+    padding-top: 5px;
+    font-size: 12px;
 }
 #tabs {
     width: 100vw;

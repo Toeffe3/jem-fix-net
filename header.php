@@ -9,6 +9,10 @@
         <div id="header" class="bg-red white">
             <img src="assets/logo.png" alt="Jem&Fix" class="logo">
             <span>INTRANET</span>
+            <div id="contact">
+                Service telefon: <a href="tel:5999"></a><br>
+                Kundeservice: <a href="tel:+45 79425942"></a><br>
+            </div>
         </div>
         <div id="tabs" class="bg-dark bg-red yellow">
             <center>
