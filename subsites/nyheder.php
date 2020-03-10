@@ -1,13 +1,13 @@
 <?php
-    $leaderpost = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM `posts` INNER JOIN `employees` ON `userid` = `id` WHERE `from` = 1"));
-    $post = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM `posts` INNER JOIN `employees` ON `userid` = `id` WHERE `from` = 0"));
-    $cykliskpost = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM `posts` INNER JOIN `employees` ON `userid` = `id` WHERE `from` = 2"));
+    $leaderpost = mysqli_query($conn,"SELECT * FROM `posts` INNER JOIN `employees` ON `userid` = `id` WHERE `from` = 1");
+    $posts = mysqli_query($conn,"SELECT * FROM `posts` INNER JOIN `employees` ON `userid` = `id` WHERE `from` = 0");
+    $cykliskpost = mysqli_query($conn,"SELECT * FROM `posts` INNER JOIN `employees` ON `userid` = `id` WHERE `from` = 2");
 ?>
 <div id="page" class="bg-gray">
     <div class="small box bg-white">
         Aktuelt fra indkøb
         <div class="posts">
-            <?php foreach ($cykliskpost as $post) {
+            <?php while($post = mysqli_fetch_assoc($cykliskpost)) {
                 echo '<div class="post">['.$post["initials"].']: <a href=?nyheder&id='.$post["id"].'>'.$post["title"].'</a></div>';
             } ?>
         </div>
@@ -15,7 +15,7 @@
     <div class="small box bg-white">
         Øvrige nyheder
         <div class="posts">
-            <?php foreach ($posts as $post) {
+            <?php while($post = mysqli_fetch_assoc($posts)) {
                 echo '<div class="post">['.$post["initials"].']: <a href=?nyheder&id='.$post["id"].'>'.$post["title"].'</a></div>';
             } ?>
         </div>
@@ -26,7 +26,7 @@
     <div class="box bg-white">
         Nyt fra ledelsen
         <div class="posts">
-            <?php foreach ($leaderpost as $post) {
+            <?php while($post = mysqli_fetch_assoc($leaderpost)) {
                 echo '<div class="post">['.$post["initials"].']: <a href=?nyheder&id='.$post["id"].'>'.$post["title"].'</a></div>';
             } ?>
         </div>
