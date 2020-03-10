@@ -1,0 +1,87 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+
+  font-family: 'Bahnschrift';
+}
+
+/* Color palette */
+.red {color: #E30613;}
+.dark.red {color: #C81C26;}
+.gray {color: #F1F1F1;}
+.dark.gray {color: #707070;}
+.yellow {color: #FFD500;}
+.dark.yellow {color: #DEBE1D;}
+.white {color: #ffffff;}
+.dark.white {color: #000000;}
+
+.bg-red {background-color: #E30613;}
+.bg-dark.bg-red {background-color: #C81C26;}
+.bg-gray {background-color: #F1F1F1;}
+.bg-dark.bg-gray {background-color: #707070;}
+.bg-yellow {background-color: #FFD500;}
+.bg-dark.bg-yellow {background-color: #DEBE1D;}
+.bg-white {background-color: #ffffff;}
+.bg-dark.bg-white {background-color: #000000;}
+
+.logo {
+  height: 80px;
+}
+
+#header {
+  width: 100vw;
+  height: 80px;
+}
+
+#header * {
+    display: inline-block;
+}
+
+#header span {
+    font-size: 36px;
+    position: relative;
+    top: -0.75em;
+}
+
+#tabs {
+  width: 100vw;
+  height: 60px;
+}
+
+#tabs .links {
+    width: 150px;
+    height: 60px;
+    display: inline-block;
+    line-height: 60px;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+#page {
+    padding: 40px;
+    display: grid;
+    grid-gap: 40px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+.box, .panel {
+    height: 100px;
+    padding: 20px;
+}
+#page .box {
+    grid-column: span 2;
+}
+
+#page .small.box {
+    grid-column: span 1;
+}
+
+#page .panel {
+    grid-column: span 1;
+}
+
+#footer {
+    height: 60px;
+    text-align: center;
+}
