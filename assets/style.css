@@ -1,9 +1,9 @@
 html, body {
-  margin: 0;
-  padding: 0;
-  border: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
 
-  font-family: 'Bahnschrift';
+    font-family: 'Bahnschrift';
 }
 
 /* Color palette */
@@ -26,12 +26,12 @@ html, body {
 .bg-dark.bg-white {background-color: #000000;}
 
 .logo {
-  height: 80px;
+    height: 80px;
 }
 
 #header {
-  width: 100vw;
-  height: 80px;
+    width: 100vw;
+    height: 80px;
 }
 
 #header * {
@@ -44,8 +44,8 @@ html, body {
     top: -0.75em;
 }
 #tabs {
-  width: 100vw;
-  height: 60px;
+    width: 100vw;
+    height: 60px;
 }
 #tabs .links {
     width: 150px;
