@@ -12,10 +12,10 @@
         </div>
         <div id="tabs" class="bg-dark bg-red yellow">
             <center>
-                <div class="links">Space</div>
-                <div class="links">Cyklisk</div>
-                <div class="links">Nyheder</div>
-                <div class="links">Ledere</div>
-                <div class="links">HR<\div>
+                <a href="?space"><div class="links">Space</div></a>
+                <a href="?cyklisk"><div class="links">Cyklisk</div></a>
+                <a href="?nyheder"><div class="links">Nyheder</div></a>
+                <a href="?leder"><div class="links">Ledere</div></a>
+                <a href="?hr"><div class="links">HR</div></a>
             </center>
         </div>
