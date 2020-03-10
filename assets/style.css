@@ -43,12 +43,10 @@ html, body {
     position: relative;
     top: -0.75em;
 }
-
 #tabs {
   width: 100vw;
   height: 60px;
 }
-
 #tabs .links {
     width: 150px;
     height: 60px;
@@ -56,6 +54,9 @@ html, body {
     line-height: 60px;
     font-weight: bold;
     font-size: 24px;
+}
+#login {
+    padding: 20px;
 }
 #page {
     padding: 40px;

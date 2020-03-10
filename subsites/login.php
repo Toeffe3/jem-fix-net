@@ -16,11 +16,13 @@ if (isset($_GET["logout"])) {
         echo '<script>window.href.location="http://jemfixnet.dk?login=sucess"</script>'
     } else echo '<script>window.href.location="http://jemfixnet.dk?login=failure"</script>';
 } else {?>
-    <div class="bg-grey dark white" id="page">
-        <form class="" action="index.php" method="post">
-            <span class="box">Initialer</span> <input class="box" type="text" name="initials" placeholder="JFN"><br>
-            <span class="box">Password</span> <input class="box" type="password" name="password" placeholder="Password"><br>
-            <input class="box" type="submit" value="Log ind">
-        </form>
+    <div class="bg-grey dark white" id="login">
+        <center>
+            <form class="" action="index.php" method="post">
+                <span>Initialer</span> <input type="text" name="initials" placeholder="JFN"><br>
+                <span>Password</span> <input type="password" name="password" placeholder="Password"><br>
+                <input type="submit" value="Log ind">
+            </form>
+        </center>
     </div>
 <?php }
