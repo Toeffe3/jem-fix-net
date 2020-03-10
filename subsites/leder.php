@@ -19,6 +19,7 @@
           <a href="#">Rediger post</a>
           <a href="#">Upload dokument</a>
           <a href="#">Rediger tags(Mapper)</a>
+          <a href="#">Fjern bruger</a>
         </div>
     </div>
 </div>
