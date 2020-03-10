@@ -6,11 +6,11 @@ if (isset($_GET["logout"])) {
     $_SESSION = array();
     header('Location: http://jemfixnet.dk?login=logout');
 } else if (!empty($_POST["initials"]) && !empty($_POST["password"])) {
-    $email = $_POST['initials'];
+    $initi = $_POST['initials'];
     $pass = md5($_POST['password']);
-    $login = mysqli_query($conn, "SELECT * FROM `users` WHERE `initials` = '$email' AND `password` = '$pass'");
-    $acc = mysqli_fetch_assoc($login);
-    if (mysqli_num_rows($acc) == 1) {
+    $login = mysqli_query($conn, "SELECT * FROM `employees` WHERE `initials` = '$initi' AND `password` = '$pass'");
+    if (mysqli_num_rows($login) == 1) {
+        $acc = mysqli_fetch_assoc($login);
         $_SESSION["user"] = $acc["id"];
         $_SESSION["initials"] = $acc["initials"];
         header('Location: http://jemfixnet.dk?login=sucess');
