@@ -5,6 +5,9 @@ html, body {
 
     font-family: 'Bahnschrift';
 }
+a, a:active, a:visited {
+    color: inherit;
+}
 
 /* Color palette */
 .red {color: #E30613;}
@@ -65,22 +68,43 @@ html, body {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
 }
+.box {
+    padding: 10px;
+    padding-top: 10px!important;
+    font-weight: bold;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
 .box, .panel {
     height: 100px;
     padding: 20px;
+    padding-top: 10px!important
 }
 #page .box {
     grid-column: span 2;
 }
-
 #page .small.box {
     grid-column: span 1;
 }
-
 #page .panel {
     grid-column: span 1;
 }
-
+.post {
+    font-weight: normal;
+    margin-bottom: 10px;
+    border: 0px hidden;
+    border-bottom: 1px solid #707070;
+}
+.post {
+    padding: 0;
+    margin: 0;
+    margin-top: 10px;
+    font-style: italic;
+    font-size: 14px;
+}
+.post a {
+    font-style: normal;
+}
 #footer {
     height: 60px;
     text-align: center;
