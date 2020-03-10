@@ -9,7 +9,7 @@
     if(isset($_SESSION["user"])) {
         include_once "subsites/login.php";
     } else {
-      include_once "subsites/login.php";
+        include_once "subsites/login.php";
     }
-    
+
     include_once "footer.php";
