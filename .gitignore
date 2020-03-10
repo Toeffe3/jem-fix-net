@@ -1,7 +1,4 @@
-Exclude files whit no extension
-*
-!*.*
-
 Exclude deployment tools
 *.bat
 *.ftp
+*.html
