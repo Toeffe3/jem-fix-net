@@ -16,20 +16,11 @@ if (isset($_GET["logout"])) {
         header('Location: http://jemfixnet.dk?login=sucess');
     } else header('Location: http://jemfixnet.dk?login=failure');
 } else {?>
-<!DOCTYPE html>
-<html lang="da" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="assets/style.css">
-        <title>Login</title>
-    </head>
-    <body>
+    <div class="bg-grey dark white" id="login" >
         <form class="" action="index.php" method="post">
-            <img src="assets/logo.png" alt="LOGO" class="logo"><br>
             <span>Initialer</span><input type="text" name="initials" placeholder="DND"><br>
             <span>Password</span><input type="password" name="password" placeholder="Password"><br>
             <input type="submit" value="Log ind">
         </form>
-    </body>
-</html>
+    </div>
 <?php }
