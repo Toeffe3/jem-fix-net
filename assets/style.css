@@ -90,6 +90,10 @@ a, a:active, a:visited {
 .post a {
     font-style: normal;
 }
+#functions {
+    list-style: none;
+    padding: 5px;
+}
 #footer {
     height: 20px;
     padding: 5px;
