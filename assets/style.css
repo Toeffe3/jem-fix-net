@@ -3,6 +3,7 @@ html, body {
     padding: 0;
     border: 0;
     font-family: 'Bahnschrift';
+    overflow-x: hidden;
 }
 a, a:active, a:visited {
     color: inherit;
@@ -30,7 +31,6 @@ a, a:active, a:visited {
     height: 40px;
 }
 #header {
-    width: 100vw;
     height: 40px;
 }
 #header * {
@@ -44,12 +44,11 @@ a, a:active, a:visited {
 #header #contact {
     float: right;
     text-align: right;
-    padding-right: 20px;
+    padding-right: 5px;
     padding-top: 5px;
     font-size: 12px;
 }
 #tabs {
-    width: 100vw;
     height: 60px;
 }
 #tabs .links {
@@ -63,13 +62,6 @@ a, a:active, a:visited {
 #login {
     padding: 20px;
 }
-#page {
-    padding: 40px;
-    display: grid;
-    grid-gap: 40px;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-}
 .box {
     padding: 10px;
     padding-top: 10px!important;
@@ -81,15 +73,6 @@ a, a:active, a:visited {
     height: 100px;
     padding: 20px;
     padding-top: 10px!important
-}
-#page .box {
-    grid-column: span 2;
-}
-#page .small.box {
-    grid-column: span 1;
-}
-#page .panel {
-    grid-column: span 1;
 }
 .post {
     font-weight: normal;
@@ -108,6 +91,9 @@ a, a:active, a:visited {
     font-style: normal;
 }
 #footer {
-    height: 60px;
+    height: 20px;
+    padding: 5px;
     text-align: center;
+    position: sticky;
+    bottom: 0px;
 }

@@ -1,0 +1,26 @@
+#page {
+    padding: 40px;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 150px);
+}
+
+#page .box {
+    grid-column: span 2;
+    grid-row: span 1;
+    height: auto;
+}
+
+#page .large.box {
+    grid-row: span 2;
+}
+
+#page .small.box {
+    grid-column: span 1;
+}
+
+#page .tall.box {
+    grid-column: span 1;
+    grid-row: span 2;
+}
