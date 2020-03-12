@@ -4,7 +4,7 @@ if (isset($_GET["logout"])) {
     session_unset();
     session_destroy();
     $_SESSION = array();
-    echo '<script>window.href.location="http://jemfixnet.dk?login=logout"</script>';
+    echo '<script>window.location.href="?login=logout"</script>';
 } else if (!empty($_POST["initials"]) && !empty($_POST["password"])) {
     $initi = $_POST['initials'];
     $pass = md5($_POST['password']);
@@ -13,8 +13,8 @@ if (isset($_GET["logout"])) {
         $acc = mysqli_fetch_assoc($login);
         $_SESSION["user"] = $acc["id"];
         $_SESSION["initials"] = $acc["initials"];
-        echo '<script>window.href.location="http://jemfixnet.dk?login=sucess"</script>';
-    } else echo '<script>window.href.location="http://jemfixnet.dk?login=failure"</script>';
+        echo '<script>window.location.href="?login=sucess"</script>';
+    } else echo '<script>window.location.href="?login=failure"</script>';
 } else {?>
     <div class="bg-grey dark white" id="login">
         <center>

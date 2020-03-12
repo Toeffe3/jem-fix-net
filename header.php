@@ -4,6 +4,7 @@
     <head>
         <meta charset="utf-8">
         <title>Jem&Fix INTRANET</title>
+        <link rel="stylesheet" href="assets/grid.css">
         <link rel="stylesheet" href="assets/style.css">
     </head>
     <body class="bg-gray">
@@ -11,8 +12,8 @@
             <img src="assets/logo.png" alt="Jem&Fix" class="logo">
             <span>INTRANET</span>
             <div id="contact">
-                Service telefon: <a href="tel:5999"></a><br>
-                Kundeservice: <a href="tel:+45 79425942"></a><br>
+                Service telefon: <a href="tel:5999">5999</a><br>
+                Kundeservice: <a href="tel:+45 79425942">+45 79425942</a><br>
             </div>
         </div>
         <div id="tabs" class="bg-dark bg-red yellow">
