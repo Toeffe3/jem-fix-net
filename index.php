@@ -7,9 +7,8 @@
     include_once "header.php";
 
     if(isset($_SESSION["user"])) {
-        if($_GET["login"]=="sucess") echo "<script>window.href.location=?nyheder</script>";
         
-        if(isset($_GET["nyheder"]))
+        if(isset($_GET["nyheder"]) || isset($_GET["login"]) && $_GET["login"] == "sucess")
             if(!empty($_GET["id"])) include_once "subsites/post.php";
             else include_once "subsites/nyheder.php";
 
