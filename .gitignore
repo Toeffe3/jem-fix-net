@@ -2,3 +2,8 @@ Exclude deployment tools
 *.bat
 *.ftp
 *.html
+
+Exclude workspace folders
+.vs
+.git
+.github
