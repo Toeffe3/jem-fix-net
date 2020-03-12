@@ -24,3 +24,8 @@
     grid-column: span 1;
     grid-row: span 2;
 }
+
+#page .full.box {
+    grid-column: span 3;
+    grid-row: span 4;
+}
