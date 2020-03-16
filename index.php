@@ -2,6 +2,7 @@
     declare(strict_types = 1);
     session_start();
     if (!defined(__DIR__)) define(__DIR__, dirname(__FILE__));
+    date_default_timezone_set("UTC"); //Uverrides default Europe/Copenhagen (PHP throws errors that it is invalid)
     include __DIR__."/dbcon.php";
 
     include_once "header.php";
