@@ -16,12 +16,21 @@
     <div class="tall box bg-yellow">
         Hurtig adgang
         <div id="functions">
-          <li><a href="#">Opret ny bruger</a></li>
-          <li><a href="#">Opret ny post</a></li>
-          <li><a href="#">Rediger post</a></li>
-          <li><a href="#">Upload dokument</a></li>
-          <li><a href="#">Rediger tags(Mapper)</a></li>
-          <li><a href="#">Fjern bruger</a></li>
+          <li><a href="?leder&users=new">Opret ny bruger</a></li>
+          <li><a href="?leder&users=edit">Rediger bruger</a></li>
+          <li><a href="?leder&users=edit&promt=remove">Fjern bruger</a></li>
+          <li><br></li>
+          <li><a href="?leder&post=new">Opret ny post</a></li>
+          <li><a href="?leder&post=edit">Rediger post</a></li>
+          <li><a href="?leder&post=edit&promt=remove">Fjern post</a></li>
+          <li><br></li>
+          <li><a href="?leder&document=new">Upload dokument</a></li>
+          <li><a href="?leder&document=edit">Rediger dokument</a></li>
+          <li><a href="?leder&document=edit&promt=remove">Fjern dokument</a></li>
+          <li><br></li>
+          <li><a href="?leder&folder=new">Opret nyt tag</a></li>
+          <li><a href="?leder&folder=edit">Rediger tag</a></li>
+          <li><a href="?leder&folder=edit&promt=remove">Fjern tag</a></li>
         </div>
     </div>
 </div>

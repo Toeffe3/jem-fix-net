@@ -7,9 +7,9 @@
         <table style="width:100%">
             <tr>
                 <th>Fuldendt</th>
-                <th>Uge</th>
+                <th>Space   /   Uge</th>
                 <?php
-                    for($i = intval(date("W")); $i < (intval(date("W"))+15); $i++)
+                    for($i = (int)(date("W")); $i < 15+(date("W")); $i++)
                         echo '<th>'.$i.'</th>';
                 ?>
             </tr>
@@ -17,18 +17,19 @@
             <?php
                 while($cykliskider = mysqli_fetch_assoc($cyklisker)) {
                     $spaces = preg_split("/,/",$cykliskider["spaces"]);
-                    $start = DateTime::createFromFormat('Y-m-d', $cykliskider["start"]);
-                    $mustdate = DateTime::createFromFormat('Y-m-d', $cykliskider["mustdate"]);
+                    $start = date_create($cykliskider["start"]);
+                    $mustdate = date_create($cykliskider["mustdate"]);
                     
                     foreach($spaces as $space) {
-                        echo '<tr>';
-                        echo '<th>X</th><th>'.$space.'</th>';
-                        for($i = intval(date("W")); $i < (intval(date("W"))+15); $i++) {
-                            if($i == intval($mustdate->format('W'))) echo '<th>S</th>';
-                            else if($i == intval($start->format('W'))) echo '<th>F</th>';
-                            else '<th></th>';
-						}
-                        echo '</tr>';
+                        echo '<tr><th>X</th><th><a href="?space&id='.$space.'">'.$space.'</a></th>';
+                        for($j = (date("W")); $j < 15+(date("W")); $j++) {
+                            if($j == (date_format($mustdate,'W')))
+                                echo '<th>S</th>';
+                            else if($j >= (date_format($start,'W')) && $j < (date_format($mustdate,'W')))
+                                echo '<th>F</th>';
+                            else
+                                echo '<th> </th>';
+						} echo '</tr>';
 				    }
                 }
             ?>
