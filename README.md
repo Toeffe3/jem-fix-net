@@ -16,6 +16,11 @@ Here is a list of currently public available XD-designs (Prototypes):
 
 ---
 
+### Database diagram
+![billede](https://user-images.githubusercontent.com/10633478/76880885-a01f6e00-6878-11ea-9259-452e153eec49.png)
+
+---
+
 The full site can be visited here:
 https://jemfixnet.dk/
 
