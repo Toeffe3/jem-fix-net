@@ -27,6 +27,31 @@ a, a:active, a:visited {
 .bg-white {background-color: #ffffff;}
 .bg-dark.bg-white {background-color: #000000;}
 
+h1, h2, h3, h4 {margin: 0;}
+h1 {
+    color: #C81C26;
+    font-size: 20px;
+    font-weight: bold;
+}
+h2 {
+    color: #707070;
+    font-size: 16px;
+    font-weight: normal;
+    background: linear-gradient(90deg, transparent 1%, #fff 1%, #fff 180px, transparent 180px),
+                linear-gradient(0deg, transparent 45%, #707070 50%, transparent 55%);
+    padding-left: 2%;
+}
+h3 {
+    color: #E30613;
+    font-size: 18px;
+    font-weight: bold;
+}
+h4 {
+    color: #000000;
+    font-size: 16px;
+    font-weight: bold;
+}
+
 .logo {
     height: 40px;
 }
@@ -64,8 +89,7 @@ a, a:active, a:visited {
 }
 .box {
     padding: 10px;
-    padding-top: 10px!important;
-    font-weight: bold;
+    padding-top: 10px !important;
     overflow-x: hidden;
     overflow-y: auto;
 }
@@ -89,6 +113,20 @@ a, a:active, a:visited {
 }
 .post a {
     font-style: normal;
+}
+.options:hover span a {
+    display: inherit !important;
+}
+.button {
+    width: 90px;
+    height: 20px;
+    padding: 0.5em;
+    margin: 10px;
+    text-align: center;
+}
+.button:hover {
+    color: #FFD500;
+    background-color: #C81C26;
 }
 #functions {
     list-style: none;

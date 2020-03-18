@@ -7,15 +7,15 @@
 ?>
 <div id="page" class="bg-gray">
     <div class="small box bg-white">
-        Aktuelt fra indkøb
+        <h4>Nyt fra ledelsen</h4>
         <div class="posts">
-            <?php while($post = mysqli_fetch_assoc($cykliskpost)) {
+            <?php while($post = mysqli_fetch_assoc($leaderpost)) {
                 echo '<div class="post">['.$post["initials"].']: <a href=?nyheder&id='.$post["post"].'>'.$post["title"].'</a></div>';
             } ?>
         </div>
     </div>
     <div class="small box bg-white">
-        Øvrige nyheder
+        <h4>Øvrige nyheder</h4>
         <div class="posts">
             <?php while($post = mysqli_fetch_assoc($posts)) {
                 echo '<div class="post">['.$post["initials"].']: <a href=?nyheder&id='.$post["post"].'>'.$post["title"].'</a></div>';
@@ -23,21 +23,21 @@
         </div>
     </div>
     <div class="tall box bg-yellow">
-        Min butik
+        <h4>Min butik</h4>
     </div>
     <div class="large box bg-white">
-        Nyt fra ledelsen
+        <h4>Aktuelt fra indkøb</h4>
         <div class="posts">
-            <?php while($post = mysqli_fetch_assoc($leaderpost)) {
+            <?php while($post = mysqli_fetch_assoc($cykliskpost)) {
                 echo '<div class="post">['.$post["initials"].']: <a href=?nyheder&id='.$post["post"].'>'.$post["title"].'</a></div>';
             } ?>
         </div>
     </div>
-    <div class="tall box bg-yellow">
-        Hurtig adgang <a onclick="addpin()">Tilføj</a>
+    <div id="pins" class="small box bg-yellow">
+        <h4 style="display:inline">Hurtig adgang</h4><a onclick="addpin()" href="#">&ltTilføj&gt</a>
         <?php
             while($pin = mysqli_fetch_assoc($pins)) {
-                echo '<br><span><a href="?'.$pin["link"].'">'.$pin["customlabel"].'</a> <a href="?pin=delete&id='.$pin["reference"].'">&ltfjern&gt</a></span>';
+                echo '<div class="options"><a href="?'.$pin["link"].'">'.$pin["customlabel"].'</a><span><a href="?pin=delete&id='.$pin["reference"].'" style="display:none;"> &ltfjern&gt</a></span></div>';
 			}
         ?>
     </div>
