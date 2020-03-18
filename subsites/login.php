@@ -1,10 +1,12 @@
 <?php
-    if (isset($_GET["logout"])) {
+    if ($_GET["login"]=="logout") {
+        echo "Logging out...";
         session_start();
         session_unset();
         session_destroy();
         $_SESSION = array();
-        echo '<script>window.location.href="?login=logout"</script>';
+        echo '<script>window.location.href="?logout"</script>';
+        exit;
     } else if (!empty($_POST["initials"]) && !empty($_POST["password"])) {
         $initi = $_POST['initials'];
         $pass = md5($_POST['password']);
@@ -13,9 +15,9 @@
             $acc = mysqli_fetch_assoc($login);
             $_SESSION["user"] = $acc["id"];
             $_SESSION["initials"] = $acc["initials"];
-            echo '<script>window.location.href="?login=sucess"</script>';
+            echo '<script>window.location.href="'.$prevpage.'"</script>';
         } else echo '<script>window.location.href="?login=failure"</script>';
-    } else { ?>
+    } else if(empty($_SESSION["user"])) { ?>
         <div class="bg-grey dark white" id="login">
             <center>
                 <form class="" action="index.php" method="post">
