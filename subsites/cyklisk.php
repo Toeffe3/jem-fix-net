@@ -3,8 +3,8 @@
 ?>
 <div id="page" class="bg-gray">
     <div class="full box bg-white">
-        Cyklisker
-        <table style="width:100%">
+        <h1>Cyklisker</h1><br>
+        <table id="cyklisk">
             <tr>
                 <th>Fuldendt</th>
                 <th>Space   /   Uge</th>
@@ -35,5 +35,6 @@
             ?>
 
         </table>
+        <div class="button bg-dark bg-gray white" style="float:right">Print</div>
     </div>
 </div>
