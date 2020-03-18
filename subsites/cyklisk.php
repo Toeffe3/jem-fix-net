@@ -35,6 +35,6 @@
             ?>
 
         </table>
-        <div class="button bg-dark bg-gray white" style="float:right">Print</div>
+        <a href="javascript:window.print()" class="button bg-dark bg-gray white" style="float:right">Print</a>
     </div>
 </div>
