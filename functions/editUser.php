@@ -9,8 +9,7 @@
             break;
 
     	case 'delete':
-            //Delete user
-            //$_GET["id"]
+            mysqli_query($conn, "DELETE FROM `employees` WHERE `id`='".$_GET["id"]."'");
             break;
 
 	    default:
