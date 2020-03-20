@@ -1,19 +1,18 @@
 <?php
 	switch ($_GET["users"]) {
-    	case 'new':
-            //Create user
+    	case 'new'
+						mysqli_query($conn, "INSERT INTO `employees` (`permission`, `fullname`, `initials`, `password`, `picture`) VALUES ('".$_GET["permission"]."', '".$_GET["name"]."', '".$_GET["initials"]."', '".$_GET["pass"]."', '".$_GET["picture"]."')");
             break;
 
     	case 'edit':
-            //Change password / other user settings
-            //$_GET["id"]
+						mysqli_query($conn, "UPDATE `employees` SET `password` = '". $_GET["pass"] ."' WHERE `id` = '". $_GET["id"] ."'");
             break;
 
     	case 'delete':
             //Delete user
             //$_GET["id"]
             break;
-	
+
 	    default:
             //View user
             //$_GET["id"]
