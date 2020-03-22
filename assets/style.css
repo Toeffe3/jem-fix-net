@@ -52,6 +52,21 @@ h4 {
     font-weight: bold;
 }
 
+#overlay {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: #00000088;
+    z-index: 100;
+    top: 0;
+}
+
+#overlay form {
+    margin: 140px 40px;
+    padding: 20px;
+    background-color: #ffffff;
+}
+
 .logo {
     height: 40px;
 }

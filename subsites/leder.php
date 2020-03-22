@@ -16,29 +16,29 @@
     <div class="taller box bg-yellow">
         <h4>Hurtig adgang</h4>
         <div id="functions">
-        <li><a href="?leder&post=new">Opret ny post</a></li>
-          <li><a href="?leder&post=edit">Rediger post</a></li>
-          <li><a href="?leder&post=edit&promt=remove">Fjern post</a></li>
+        <li><a href="?leder&post=new">Opret ny post*</a></li>
+          <li><a href="?leder&post=edit">Rediger post*</a></li>
+          <li><a href="?leder&post=edit&remove">Fjern post*</a></li>
           <li><br></li>
-          <li><a href="?leder&document=new">Upload dokument</a></li>
-          <li><a href="?leder&document=edit">Rediger dokument</a></li>
-          <li><a href="?leder&document=edit&promt=remove">Fjern dokument</a></li>
+          <li><a href="?leder&document=new">Upload dokument*</a></li>
+          <li><a href="?leder&document=edit">Rediger dokument*</a></li>
+          <li><a href="?leder&document=edit&remove">Fjern dokument*</a></li>
           <li><br></li>
           <li><a href="?leder&folder=new">Opret nyt tag</a></li>
           <li><a href="?leder&folder=edit">Rediger tag</a></li>
-          <li><a href="?leder&folder=edit&promt=remove">Fjern tag</a></li>
+          <li><a href="?leder&folder=edit&remove">Fjern tag</a></li>
           <li><br></li>
-          <li><a href="?leder&cyklisk=new">Ny cyklisk</a></li>
-          <li><a href="?leder&cyklisk=edit">Rediger cyklisk</a></li>
-          <li><a href="?leder&cyklisk=edit&promt=remove">Fjern cyklisk</a></li>
+          <li><a href="?leder&cyklisk=new">Ny cyklisk*</a></li>
+          <li><a href="?leder&cyklisk=edit">Rediger cyklisk*</a></li>
+          <li><a href="?leder&cyklisk=edit&remove">Fjern cyklisk*</a></li>
           <li><br></li>
-          <li><a href="?leder&space=new">Nyt space</a></li>
-          <li><a href="?leder&space=edit">Rediger space</a></li>
-          <li><a href="?leder&space=edit&promt=remove">Fjern space</a></li>
+          <li><a href="?leder&space=new">Nyt space*</a></li>
+          <li><a href="?leder&space=edit">Rediger space*</a></li>
+          <li><a href="?leder&space=edit&remove">Fjern space*</a></li>
           <li><br></li>
-          <li><a href="?leder&users=new">Opret ny bruger</a></li>
-          <li><a href="?leder&users=edit">Rediger bruger</a></li>
-          <li><a href="?leder&users=edit&promt=remove">Fjern bruger</a></li>
+          <li><a href="?leder&users=new">Opret ny bruger**</a></li>
+          <li><a href="?leder&users=edit">Rediger bruger**</a></li>
+          <li><a href="?leder&users=edit&remove">Fjern bruger**</a></li>
         </div>
     </div>
 </div>
