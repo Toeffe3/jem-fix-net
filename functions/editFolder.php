@@ -23,17 +23,17 @@
             
             $action = $url;
             $inputs = [
-                "seltag" => ["select", $current_tags, 1],
-                "redirect" => ["hidden",$prevpage, 0]
+                "seltag" => ["select", $current_tags, "Vælg tag: ", 1],
+                "redirect" => ["hidden",$prevpage, "", 0]
             ];
 
             if(isset($_GET["remove"])) {
-                $inputs["confirm"] = ["text", "Skriv navnet for at bekræfte", 1];
-                $inputs["delete"] = ["submit", "Fjern (Slet alle dokumenter med dette tag)", 0];
+                $inputs["confirm"] = ["text", "", "Skriv navnet for at bekræfte", 1];
+                $inputs["delete"] = ["submit", "Fjern (Slet alle dokumenter med dette tag)", "", 0];
             } else {
-                $inputs["newname"] = ["text", "Nyt navn", 0];
-                $inputs["access"] = ["select", [0=>"Alle",1=>"Brt. Ansatte",2=>"Leder",3=>"Butikschef"], 0];
-                $inputs["submit"] = ["submit", "Ændre", 0];
+                $inputs["newname"] = ["text", "", "Nyt navn", 0];
+                $inputs["access"] = ["select", [0=>"Alle",1=>"Brt. Ansatte",2=>"Leder",3=>"Butikschef"], "Adgang", 0];
+                $inputs["submit"] = ["submit", "Ændre", "", 0];
             }
 
             //TODO: Sucess/fail feedback

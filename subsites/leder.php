@@ -20,7 +20,7 @@
           <li><a href="?leder&post=edit">Rediger post*</a></li>
           <li><a href="?leder&post=edit&remove">Fjern post*</a></li>
           <li><br></li>
-          <li><a href="?leder&document=new">Upload dokument*</a></li>
+          <li><a href="?leder&document=new">Upload dokument</a></li>
           <li><a href="?leder&document=edit">Rediger dokument*</a></li>
           <li><a href="?leder&document=edit&remove">Fjern dokument*</a></li>
           <li><br></li>
