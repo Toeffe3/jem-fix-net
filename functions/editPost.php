@@ -1,22 +1,20 @@
 <?php
 	//TODO: Add permission check
-
 	switch ($_GET["post"]) {
 		case 'new':
 
-			//kajhkjsh
 			$categories = [
-				"0" => "Øvrige",
+				"0" => "Ã˜vrige",
 				1 => "Ledelsen",
-				2 => "Indkøb"
+				2 => "IndkÃ¸b"
 			];
 
 			$action = $url;
 			$inputs = [
 				["info", "Opret et nyt opslag"],
-				"title" => ["text", "","Titel på opslag", 1],
+				"title" => ["text", "","Titel pÃ¥ opslag", 1],
 				"category" => ["select", $categories,"Kategori", 1],
-				"text" => ["richtext", "", "Brødtekst", 1],
+				"text" => ["richtext", "", "BrÃ¸dtekst", 1],
 				"redirect" => ["hidden", $prevpage, "", 0],
 				"submit" => ["submit", "Opret", "", 0]
 			];
@@ -61,7 +59,7 @@
 									 echo "<script>window.location.href='".$_POST["redirect"]."'</script>";
 								else echo "<script>alert('Fejl - kunne ikke redigere opslag')</script>";
 						}
-					} else echo "<script>alert('Du har ikke redigheder til at ændre dette opslag')</script>";
+					} else echo "<script>alert('Du har ikke redigheder til at Ã¦ndre dette opslag')</script>";
 				}
 			}*/
 			break;
