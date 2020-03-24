@@ -1,4 +1,6 @@
 <?php
+    include __DIR__."\..\assets\lib\Markdown\Michelf\Markdown.inc.php";
+    use Michelf/Markdown;
 	$post = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM `posts` INNER JOIN `employees` ON `userid` = `id` WHERE `post` = ".$_GET["id"]));
 ?>
 <div id="page" class="bg-gray">

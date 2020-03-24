@@ -3,6 +3,9 @@ Exclude deployment tools
 *.ftp
 *.html
 
+Exclude libraries
+\lib
+
 Exclude workspace folders
 .vs
 .git
