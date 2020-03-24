@@ -25,4 +25,4 @@ The full site can be visited here:
 https://jemfixnet.dk/
 
 And our test-branch is available here:
-https://jemfixnet.dk/test/
+https://test.jemfixnet.dk/
