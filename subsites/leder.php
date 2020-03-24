@@ -8,7 +8,7 @@
 		<div class="posts">
 			<?php
 				while($post = mysqli_fetch_assoc($leaderpost)) {
-					echo '<div class="post">['.$post["initials"].']: <a href=?nyheder&id='.$post["id"].'>'.$post["title"].'</a></div>';
+					echo '<div class="post">['.$post["initials"].']: <a href=?nyheder&id='.$post["post"].'>'.$post["title"].'</a></div>';
 				}
 			?>
 		</div>
@@ -16,9 +16,9 @@
 	<div class="taller box bg-yellow">
 		<h4>Hurtig adgang</h4>
 		<div id="functions">
-		<li><a href="?leder&post=new">Opret ny post*</a></li>
-		  <li><a href="?leder&post=edit">Rediger post*</a></li>
-		  <li><a href="?leder&post=edit&remove">Fjern post*</a></li>
+		<li><a href="?leder&post=new">Opret ny opslag</a></li>
+		  <li><a href="?leder&post=edit">Rediger opslag*</a></li>
+		  <li><a href="?leder&post=edit&remove">Fjern opslag*</a></li>
 		  <li><br></li>
 		  <li><a href="?leder&document=new">Upload dokument</a></li>
 		  <li><a href="?leder&document=edit">Rediger dokument*</a></li>

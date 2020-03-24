@@ -60,11 +60,21 @@ h4 {
 	z-index: 100;
 	top: 0;
 }
-
 #overlay form {
 	margin: 140px 40px;
 	padding: 20px;
 	background-color: #ffffff;
+}
+#overlay form * {
+	margin: 5px;
+}
+#overlay textarea.rich {
+	margin: 5px 20px;
+	width: calc(100% - 40px);
+	width: moz-available;
+}
+#overlay table tr td:nth-child(1) {
+	width: 120px;
 }
 
 .logo {
@@ -129,6 +139,7 @@ h4 {
 .post a {
 	font-style: normal;
 }
+
 .options:hover span a {
 	display: inherit !important;
 }

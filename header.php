@@ -6,6 +6,7 @@
 		<title>Jem&Fix INTRANET</title>
 		<link rel="stylesheet" type="text/css" href="assets/grid.css">
 		<link rel="stylesheet" type="text/css" href="assets/style.css">
+		<link rel="stylesheet" type="text/css" href="assets/richtext.css">
 		<link rel="stylesheet" type="text/css" href="assets/print.css" media="print">
 	</head>
 	<body class="bg-gray">
