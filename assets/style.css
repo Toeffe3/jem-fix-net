@@ -1,12 +1,12 @@
 html, body {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-family: 'Bahnschrift';
-    overflow-x: hidden;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-family: 'Bahnschrift';
+	overflow-x: hidden;
 }
 a, a:active, a:visited {
-    color: inherit;
+	color: inherit;
 }
 /* Color palette */
 .red {color: #E30613;}
@@ -29,128 +29,139 @@ a, a:active, a:visited {
 
 h1, h2, h3, h4 {margin: 0;}
 h1 {
-    color: #C81C26;
-    font-size: 20px;
-    font-weight: bold;
+	color: #C81C26;
+	font-size: 20px;
+	font-weight: bold;
 }
 h2 {
-    color: #707070;
-    font-size: 16px;
-    font-weight: normal;
-    background: linear-gradient(90deg, transparent 1%, #fff 1%, #fff 180px, transparent 180px),
-                linear-gradient(0deg, transparent 45%, #707070 50%, transparent 55%);
-    padding-left: 2%;
+	color: #707070;
+	font-size: 16px;
+	font-weight: normal;
+	background: linear-gradient(90deg, transparent 1%, #fff 1%, #fff 180px, transparent 180px),
+				linear-gradient(0deg, transparent 45%, #707070 50%, transparent 55%);
+	padding-left: 2%;
 }
 h3 {
-    color: #E30613;
-    font-size: 18px;
-    font-weight: bold;
+	color: #E30613;
+	font-size: 18px;
+	font-weight: bold;
 }
 h4 {
-    color: #000000;
-    font-size: 16px;
-    font-weight: bold;
+	color: #000000;
+	font-size: 16px;
+	font-weight: bold;
 }
 
 #overlay {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    background-color: #00000088;
-    z-index: 100;
-    top: 0;
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	background-color: #00000088;
+	z-index: 100;
+	top: 0;
 }
-
 #overlay form {
-    margin: 140px 40px;
-    padding: 20px;
-    background-color: #ffffff;
+	margin: 140px 40px;
+	padding: 20px;
+	background-color: #ffffff;
+}
+#overlay form * {
+	margin: 5px;
+}
+#overlay textarea.rich {
+	margin: 5px 20px;
+	width: calc(100% - 40px);
+	width: moz-available;
+}
+#overlay table tr td:nth-child(1) {
+	width: 120px;
 }
 
 .logo {
-    height: 40px;
+	height: 40px;
 }
 #header {
-    height: 40px;
+	height: 40px;
 }
 #header * {
-    display: inline-block;
+	display: inline-block;
 }
 #header span {
-    font-size: 28px;
-    position: relative;
-    top: -0.35em;
+	font-size: 28px;
+	position: relative;
+	top: -0.35em;
 }
 #header #contact {
-    float: right;
-    text-align: right;
-    padding-right: 5px;
-    padding-top: 5px;
-    font-size: 12px;
+	float: right;
+	text-align: right;
+	padding-right: 5px;
+	padding-top: 5px;
+	font-size: 12px;
 }
 #tabs {
-    height: 60px;
+	height: 60px;
 }
 #tabs .links {
-    width: 150px;
-    height: 60px;
-    display: inline-block;
-    line-height: 60px;
-    font-weight: bold;
-    font-size: 24px;
+	width: 150px;
+	height: 60px;
+	display: inline-block;
+	line-height: 60px;
+	font-weight: bold;
+	font-size: 24px;
 }
 #login {
-    padding: 20px;
+	padding: 20px;
 }
 .box {
-    padding: 10px;
-    padding-top: 10px !important;
-    overflow-x: hidden;
-    overflow-y: auto;
+	padding: 10px;
+	padding-top: 10px !important;
+	overflow-x: hidden;
+	overflow-y: auto;
 }
 .box, .panel {
-    height: 100px;
-    padding: 20px;
-    padding-top: 10px!important
+	height: 100px;
+	padding: 20px;
+	padding-top: 10px!important
 }
 .post {
-    font-weight: normal;
-    margin-bottom: 10px;
-    border: 0px hidden;
-    border-bottom: 1px solid #707070;
+	font-weight: normal;
+	margin-bottom: 10px;
+	border: 0px hidden;
+	border-bottom: 1px solid #707070;
 }
 .post {
-    padding: 0;
-    margin: 0;
-    margin-top: 10px;
-    font-style: italic;
-    font-size: 14px;
+	padding: 0;
+	margin: 0;
+	margin-top: 10px;
+	font-style: italic;
+	font-size: 14px;
 }
 .post a {
-    font-style: normal;
+	font-style: normal;
 }
+
 .options:hover span a {
-    display: inherit !important;
+	display: inherit !important;
 }
 .button {
-    width: 90px;
-    height: 20px;
-    padding: 0.5em;
-    margin: 10px;
-    text-align: center;
+	width: 90px;
+	height: 20px;
+	padding: 0.5em;
+	margin: 10px;
+	text-align: center;
 }
 .button:hover {
-    color: #FFD500;
-    background-color: #C81C26;
+	color: #FFD500;
+	background-color: #C81C26;
 }
 #functions {
-    list-style: none;
-    padding: 5px;
+	list-style: none;
+	padding: 5px;
 }
 #footer {
-    height: 20px;
-    padding: 5px;
-    text-align: center;
-    position: sticky;
-    bottom: 0px;
+	height: 20px;
+	padding: 5px;
+	text-align: center;
+	position: sticky;
+	bottom: 0px;
 }
