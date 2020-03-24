@@ -1,24 +1,24 @@
 #header, #tabs, #footer, .button {
-    display: none!important;
+	display: none!important;
 }
 
 table {
-    width: 100%;
-    border-collapse: collapse;
+	width: 100%;
+	border-collapse: collapse;
 }
 
 #cyklisk tr th {
-    border: 3px solid #707070;
-    padding: 5px;
-    font-weight: normal;
+	border: 3px solid #707070;
+	padding: 5px;
+	font-weight: normal;
 }
 
 #cyklisk tr:nth-child(1) th {
-    background-color: #FFD500;
-    font-weight: bold;
+	background-color: #FFD500;
+	font-weight: bold;
 }
 
 #cyklisk tr:nth-child(1) th:nth-child(1n+3) {
-    background-color: #707070;
-    color: #ffffff;
+	background-color: #707070;
+	color: #ffffff;
 }
