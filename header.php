@@ -20,10 +20,10 @@
 		</div>
 		<div id="tabs" class="bg-dark bg-red yellow">
 			<center>
-				<a href="?space"><div class="links">Space</div></a>
-				<a href="?cyklisk"><div class="links">Cyklisk</div></a>
-				<a href="?nyheder"><div class="links">Nyheder</div></a>
-				<a href="?leder"><div class="links">Ledere</div></a>
-				<a href="?hr"><div class="links">HR</div></a>
+				<a href="?space"><div class="<?php echo (isset($_GET['space'])?'links active':'links') ?>">Space</div></a>
+				<a href="?cyklisk"><div class="<?php echo (isset($_GET['cyklisk'])?'links active':'links') ?>">Cyklisk</div></a>
+				<a href="?nyheder"><div class="<?php echo (isset($_GET['nyheder'])?'links active':'links') ?>">Nyheder</div></a>
+				<a href="?leder"><div class="<?php echo (isset($_GET['leder'])?'links active':'links') ?>">Ledere</div></a>
+				<a href="?hr"><div class="<?php echo (isset($_GET['hr'])?'links active':'links') ?>">HR</div></a>
 			</center>
 		</div>
