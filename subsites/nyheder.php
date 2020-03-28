@@ -2,7 +2,7 @@
 	$posts = mysqli_query($conn, "SELECT * FROM `posts` INNER JOIN `employees` ON `userid` = `id` WHERE `from` = 0");
 	$leaderpost = mysqli_query($conn, "SELECT * FROM `posts` INNER JOIN `employees` ON `userid` = `id` WHERE `from` = 1");
 	$cykliskpost = mysqli_query($conn, "SELECT * FROM `posts` INNER JOIN `employees` ON `userid` = `id` WHERE `from` = 2");
-	
+
 	$pins = mysqli_query($conn, "SELECT * FROM `pinned` WHERE `userid` = ".$_SESSION["user"]);
 ?>
 <div id="page" class="bg-gray">
@@ -34,20 +34,11 @@
 		</div>
 	</div>
 	<div id="pins" class="small box bg-yellow">
-		<h4 style="display:inline">Hurtig adgang</h4><a onclick="addpin()" href="#">&ltTilføj&gt</a>
+		<h4 style="display:inline">Hurtig adgang</h4><a onclick="addpin()" href="?pin=new" class="add icon">&ltTilføj&gt</a>
 		<?php
 			while($pin = mysqli_fetch_assoc($pins)) {
-				echo '<div class="options"><a href="?'.$pin["link"].'">'.$pin["customlabel"].'</a><span><a href="?pin=delete&id='.$pin["reference"].'" style="display:none;"> &ltfjern&gt</a></span></div>';
+				echo '<div class="options"><a href="'.$pin["link"].'">'.$pin["customlabel"].'</a><span><a href="?pin=delete&id='.$pin["reference"].'" style="display:none;" class="remove icon"> &ltfjern&gt</a></span></div>';
 			}
 		?>
 	</div>
 </div>
-<script>
-	function addpin() {
-		var link = prompt("Indsæt link:", "posts=new");
-		if(link == null && link == "") return false;
-		var navn = prompt("Kaldenavn for '"+link+"':", "Opret post");
-		if(navn == null && navn == "") return false
-		window.location.href="?pin=new&link="+link+"&name="+navn;
-	}
-</script>

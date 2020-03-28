@@ -27,6 +27,20 @@ a, a:active, a:visited {
 .bg-white {background-color: #ffffff;}
 .bg-dark.bg-white {background-color: #000000;}
 
+.icon {
+	background-repeat: no-repeat;
+	background-size: 40px;
+	background-position: center;
+	width: 24px;
+	height: 24px;
+	display: inline-block;
+	color: transparent;
+}
+
+.icon.add {background-image: url("icons/red/add.png");}
+.icon.remove {background-image: url("icons/red/remove.png");}
+.icon.back {background-image: url("icons/red/back.png");}
+
 h1, h2, h3, h4 {margin: 0;}
 h1 {
 	color: #C81C26;
@@ -72,6 +86,9 @@ h4 {
 	margin: 5px 20px;
 	width: calc(100% - 40px);
 	width: moz-available;
+	max-width: calc(100vw - 180px);
+	height: 400px;
+	max-height: 600px;
 }
 #overlay table tr td:nth-child(1) {
 	width: 120px;
@@ -108,6 +125,20 @@ h4 {
 	line-height: 60px;
 	font-weight: bold;
 	font-size: 24px;
+}
+#tabs .links:before {
+	content: "";
+	background-image: url("icons/yellow/arrow.png");
+	background-repeat: no-repeat;
+	background-size: 45px;
+	background-position: center -7px;
+	position: relative;
+	width: 24px;
+	height: 24px;
+	display: inherit;
+}
+#tabs .links.active:before {
+	background-image: url("icons/yellow/arrow_sel.png");
 }
 #login {
 	padding: 20px;
