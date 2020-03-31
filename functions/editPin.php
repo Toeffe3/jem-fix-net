@@ -21,14 +21,22 @@
 				"redirect" => ["hidden",$prevpage, "", 0],
 				"submit" => ["submit", "Opret", "", 0]
 			];
-			if($_POST["submit"] && ( (!empty($_POST["flink"]) && !empty($_POST["name"]) )||!empty($_POST["ulink"]))) {
-				$url = !empty($_POST["flink"])?$_POST["flink"]:$_POST["ulink"];
-				if(mysqli_query($conn, "INSERT INTO `pinned` (`userid`, `link`, `customlabel`) VALUES ('".$_SESSION["user"]."', '".$_POST["link"]."', '".$_POST["name"]."')"))
+
+			if($_POST["submit"]) {
+				if(!empty($_POST["ulink"]) && !empty($_POST["name"])) {
+					$link = $_POST["ulink"];
+					$name = $_POST["name"];
+				} else if(!empty($_POST["flink"])) {
+					$link = $_POST["flink"];
+					$name = $functions[$link];
+				}
+
+				if(mysqli_query($conn, "INSERT INTO `pinned` (`userid`, `link`, `customlabel`) VALUES ('".$_SESSION["user"]."', '".$link."', '".$name."')"))
 					echo "<script>window.location.href='".$prevpage."?sucess'</script>";
 				else
 					echo "<script>window.location.href='".$prevpage."?error'</script>";
-				break;
 			}
+			break;
 
 		case 'edit':
 
