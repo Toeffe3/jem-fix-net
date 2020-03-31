@@ -25,5 +25,6 @@
 				<a href="?nyheder"><div class="<?php echo (isset($_GET['nyheder'])?'links active':'links') ?>">Nyheder</div></a>
 				<a href="?leder"><div class="<?php echo (isset($_GET['leder'])?'links active':'links') ?>">Ledere</div></a>
 				<a href="?hr"><div class="<?php echo (isset($_GET['hr'])?'links active':'links') ?>">HR</div></a>
+				<a href="?search"><div class="links search icon search yellow"></div></a>
 			</center>
 		</div>
