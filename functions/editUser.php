@@ -1,16 +1,22 @@
 <?php
+	
+	$perms = [
+		0 => "Kun visning",
+		1 => "Ansat",
+		2 => "Ansat med rettigheder",
+		3 => "Højtstillede ansat",
+		4 => "Manager",
+		5 => "Butikschef",
+	   -1 => "Admin"
+	];
+
+	$users = array();
+	$sql = mysqli_query($conn, "SELECT * FROM `employees` WHERE 1");
+	while($user = mysqli_fetch_assoc($sql))
+		$users[$user["id"]] = $user["initials"].": ".$user["fullname"];
+
 	switch ($_GET["users"]) {
 		case 'new':
-
-			$perms = [
-				0 => "Kun visning",
-				1 => "Ansat",
-				2 => "Ansat med rettigheder",
-				3 => "Højtstillede ansat",
-				4 => "Manager",
-				5 => "Butikschef",
-			   -1 => "Admin"
-			];
 			
 			$action = $url;
 			$inputs = [
@@ -32,21 +38,6 @@
 
 		case 'edit':
 
-			$users = array();
-			$perms = [
-				0 => "Kun visning",
-				1 => "Ansat",
-				2 => "Ansat med rettigheder",
-				3 => "Højtstillede ansat",
-				4 => "Manager",
-				5 => "Butikschef",
-			   -1 => "Admin"
-			];
-
-			$sql = mysqli_query($conn, "SELECT * FROM `employees` WHERE 1");
-			while($user = mysqli_fetch_assoc($sql))
-				$users[$user["id"]] = $user["initials"].": ".$user["fullname"];
-
 			$action = $url;
 			$inputs = [
 				"id" => ["select", $users, "Vælg bruger", 1],
@@ -65,11 +56,6 @@
 
 		case 'delete':
 
-			$users = array();
-			$sql = mysqli_query($conn, "SELECT * FROM `employees` WHERE 1");
-			while($user = mysqli_fetch_assoc($sql))
-				$users[$user["id"]] = $user["initials"].": ".$user["fullname"];
-
 			$action = $url;
 			$inputs = [
 				"id" => ["select", $users, "Vælg bruger", 1],
@@ -79,6 +65,7 @@
 
 			if($_POST["submit"])
 				mysqli_query($conn, "DELETE FROM `employees` WHERE `id`='".$_POST["id"]."'");
+
 			break;
 
 	}

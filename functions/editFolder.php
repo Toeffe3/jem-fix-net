@@ -8,9 +8,9 @@
 				"redirect" => ["hidden",$prevpage, "", 0],
 				"submit" => ["submit", "Opret", "", 0]
 			];
+
 			if($_POST["submit"]) {
 				mkdir(__DIR__."/../documents/".$_POST["tagname"]);
-				//TODO: Sucess/fail feedback
 				echo "<script>window.location.href='".$_POST["redirect"]."'</script>";
 			}
 			break;
@@ -37,16 +37,19 @@
 				$inputs["submit"] = ["submit", "Ændre", "", 0];
 			}
 
-			//TODO: Sucess/fail feedback
 			if($_POST["submit"]) {
-				if(!empty($_GET["newname"])) rename(__DIR__."/../documents/".$_POST["seltag"], __DIR__."/../documents/".$_POST["newname"]);
-				if(!empty($_GET["access"])) echo "SQL skal indsættes her! ".$_GET["access"];
-				echo "<script>window.location.href='".$_POST["redirect"]."'</script>";
-			} else if($_POST["delete"]) {
+
+				if(!empty($_POST["newname"])) {
+					rename(__DIR__."/../documents/".$_POST["seltag"], __DIR__."/../documents/".$_POST["newname"]);
+					echo "<script>window.location.href='".$_POST["redirect"]."'</script>";
+				}
+
+			} else if($_POST["delete"])
 				if($_POST["seltag"] == $_POST["confirm"])
-					rmdir(__DIR__."/../documents/".$_POST["seltag"]);
-				echo "<script>window.location.href='".$_POST["redirect"]."'</script>";
-			}
+					if(rmdir(__DIR__."/../documents/".$_POST["seltag"]))
+						echo "<script>window.location.href='".$_POST["redirect"]."'</script>";
+
+			
 			break;
 	}
 	
