@@ -36,9 +36,9 @@
 		  <li><a href="?leder&space=edit">Rediger space*</a></li>
 		  <li><a href="?leder&space=edit&remove">Fjern space*</a></li>
 		  <li><br></li>
-		  <li><a href="?leder&users=new">Opret ny bruger**</a></li>
-		  <li><a href="?leder&users=edit">Rediger bruger**</a></li>
-		  <li><a href="?leder&users=edit&remove">Fjern bruger**</a></li>
+		  <li><a href="?leder&users=new">Opret ny bruger</a></li>
+		  <li><a href="?leder&users=edit">Rediger bruger</a></li>
+		  <li><a href="?leder&users=delete">Fjern bruger</a></li>
 		</div>
 	</div>
 </div>

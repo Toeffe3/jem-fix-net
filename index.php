@@ -24,7 +24,7 @@
 
 	if(isset($_SESSION["user"])) {
 
-		if(isset($_GET["user"])) include_once "functions/editUser.php";
+		if(isset($_GET["users"])) include_once "functions/editUser.php";
 		else if(isset($_GET["post"])) include_once "functions/editPost.php";
 		else if(isset($_GET["document"])) include_once "functions/editDocument.php";
 		else if(isset($_GET["folder"])) include_once "functions/editFolder.php";
