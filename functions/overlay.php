@@ -39,7 +39,7 @@
 							break;
 
 						default:
-							echo "<tr>".($value[2]==""?"":"<td>".$value[2].": </td>").'<td'.($value[2]==""?" colspan=2":"").'><input type="'.$value[0].'" name="'.$key.'" value="'.$value[1].'" placeholder="'.$value[2].'" '.($value[3]==1?"required":"").'" />'.($value[3]==1?"*":"").'</td></tr>';
+							echo "<tr>".($value[2]==""?"":"<td>".$value[2].": </td>").'<td'.($value[2]==""?" colspan=2":"").'><input type="'.$value[0].'" name="'.$key.'" value="'.$value[1].'" placeholder="'.$value[2].'" '.($value[3]==1?"required":"").'" '.(!empty($value[4])?"max=".$value[4]." ":"".!empty($value[5])?"min=".$value[5]:"").'/>'.($value[3]==1?"*":"").'</td></tr>';
 							break;
 					}
 
