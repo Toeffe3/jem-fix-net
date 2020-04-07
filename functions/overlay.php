@@ -19,7 +19,7 @@
 							break;
 
 						case "textarea":
-							echo '<tr><td>'.$value[2].': </td></tr><tr><td colspan="2"><textarea name="'.$key.'"></textarea></td></tr>';
+							echo '<tr><td>'.$value[2].': </td></tr><tr><td colspan="2"><textarea name="'.$key.'">'.$value[1].'</textarea></td></tr>';
 							break;
 
 						case "richtext":
@@ -35,7 +35,19 @@
 								'<img src="assets/icons/yellow/h1.png" height="50px" onclick="h1()" />'.
 								'<img src="assets/icons/yellow/h2.png" height="50px" onclick="h3()" />'.
 								'<img src="assets/icons/yellow/h3.png" height="50px" onclick="h6()" />'.
-							'</div></td></tr><tr><td colspan="2"><textarea class="rich" name="'.$key.'"></textarea></td></tr>';
+							'</div></td></tr><tr><td colspan="2"><textarea class="rich" name="'.$key.'">'.$value[1].'</textarea></td></tr>';
+							break;
+
+						case "fileexplorer":
+							$lastfolder = "";
+							echo "<tr style='height:350px;display:block;overflow-y:scroll;'><td>";
+							foreach($value[1] as $folder => $files) {
+								echo '<b>'.$folder.'</b>:<ul>';
+									foreach($files as $file)
+										echo '<li style="list-style: none;"><a href="#'.$file.'">'.$file.'</a></li>';
+								echo '</ul>';	
+							}
+							echo "</td></tr>";
 							break;
 
 						default:
