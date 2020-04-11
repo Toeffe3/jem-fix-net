@@ -1,21 +1,26 @@
 <?php
 	haveAccessTo(__FILE__);
+	
+	$perms = [
+		0 => "Kun visning",
+		1 => "Ansat",
+		2 => "Ansat med rettigheder",
+		3 => "HÃ¸jtstillede ansat",
+		4 => "Manager",
+		5 => "Butikschef",
+	   -1 => "Admin"
+	];
+
+	$users = array();
+	$sql = mysqli_query($conn, "SELECT * FROM `employees` WHERE 1");
+	while($user = mysqli_fetch_assoc($sql))
+		$users[$user["id"]] = $user["initials"].": ".$user["fullname"];
 	switch ($_GET["users"]) {
 		case 'new':
-
-			$perms = [
-				0 => "Kun visning",
-				1 => "Ansat",
-				2 => "Ansat med rettigheder",
-				3 => "Højtstillede ansat",
-				4 => "Manager",
-				5 => "Butikschef",
-			   -1 => "Admin"
-			];
 			
 			$action = $url;
 			$inputs = [
-				["info", "Opret en ny bruger, hvis der ikke angives noget kodeord vil det blive sat til: <b>1234</b>, og kan ændres på enhvert tidspunkt."],
+				["info", "Opret en ny bruger, hvis der ikke angives noget kodeord vil det blive sat til: <b>1234</b>, og kan Ã¦ndres pÃ¥ enhvert tidspunkt."],
 				"name" => ["text", "", "Fulde navn", 1],
 				"initials" => ["text", "", "Initialer", 1],
 				"password" => ["password", "", "Kodeord", 0],
@@ -33,30 +38,15 @@
 
 		case 'edit':
 
-			$users = array();
-			$perms = [
-				0 => "Kun visning",
-				1 => "Ansat",
-				2 => "Ansat med rettigheder",
-				3 => "Højtstillede ansat",
-				4 => "Manager",
-				5 => "Butikschef",
-			   -1 => "Admin"
-			];
-
-			$sql = mysqli_query($conn, "SELECT * FROM `employees` WHERE 1");
-			while($user = mysqli_fetch_assoc($sql))
-				$users[$user["id"]] = $user["initials"].": ".$user["fullname"];
-
 			$action = $url;
 			$inputs = [
-				"id" => ["select", $users, "Vælg bruger", 1],
+				"id" => ["select", $users, "VÃ¦lg bruger", 1],
 				"password" => ["password", "", "Nyt kodeord", 0],
-				"name" => ["text", "", "Ændre navn", 0],
-				"initials" => ["text", "", "Ændre initialer", 0, 3, 4],
+				"name" => ["text", "", "Ã†ndre navn", 0],
+				"initials" => ["text", "", "Ã†ndre initialer", 0, 3, 4],
 				"permission" => ["select", $perms, "Ny rettighed", 0],
 				"redirect" => ["hidden", $prevpage, "", 0],
-				"submit" => ["submit", "Ændre", "", 0]
+				"submit" => ["submit", "Ã†ndre", "", 0]
 			];
 			
 			if($_POST["submit"])
@@ -66,20 +56,16 @@
 
 		case 'delete':
 
-			$users = array();
-			$sql = mysqli_query($conn, "SELECT * FROM `employees` WHERE 1");
-			while($user = mysqli_fetch_assoc($sql))
-				$users[$user["id"]] = $user["initials"].": ".$user["fullname"];
-
 			$action = $url;
 			$inputs = [
-				"id" => ["select", $users, "Vælg bruger", 1],
+				"id" => ["select", $users, "VÃ¦lg bruger", 1],
 				"redirect" => ["hidden", $prevpage, "", 0],
-				"submit" => ["submit", "Bekræft sletning af bruger", "", 0]
+				"submit" => ["submit", "BekrÃ¦ft sletning af bruger", "", 0]
 			];
 
 			if($_POST["submit"])
 				mysqli_query($conn, "DELETE FROM `employees` WHERE `id`='".$_POST["id"]."'");
+
 			break;
 
 	}

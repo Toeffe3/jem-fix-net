@@ -31,22 +31,14 @@
 					$name = $functions[$link];
 				}
 
-				if(mysqli_query($conn, "INSERT INTO `pinned` (`userid`, `link`, `customlabel`) VALUES ('".$_SESSION["user"]."', '".$link."', '".$name."')"))
-					echo "<script>window.location.href='".$prevpage."?sucess'</script>";
-				else
-					echo "<script>window.location.href='".$prevpage."?error'</script>";
+				mysqli_query($conn, "INSERT INTO `pinned` (`userid`, `link`, `customlabel`) VALUES ('".$_SESSION["user"]."', '".$link."', '".$name."')");
+				echo "<script>window.location.href='".$_POST["redirect"]."'</script>";
 			}
 			break;
 
-		case 'edit':
-
-			break;
-
 		case 'delete':
-			if(mysqli_query($conn, "DELETE FROM `pinned` WHERE `reference` = ".$_GET["id"]))
-				echo "<script>window.location.href='".$prevpage."?sucess'</script>";
-			else
-				echo "<script>window.location.href='".$prevpage."?error'</script>";
+			mysqli_query($conn, "DELETE FROM `pinned` WHERE `reference` = ".$_GET["id"]);
+			echo "<script>window.location.href='".$_POST["redirect"]."'</script>";
 			break;
 	}
 

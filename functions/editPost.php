@@ -4,7 +4,7 @@
 		case 'new':
 
 			$categories = [
-				"0" => "Øvrige",
+				0 => "Øvrige",
 				1 => "Ledelsen",
 				2 => "Indkøb"
 			];
@@ -27,41 +27,33 @@
 					if(mysqli_query($conn, "INSERT INTO `posts` (`userid`, `from`, `title`, `text`) VALUES ('".$_SESSION["user"]."', '".$_POST["category"]."', '".$_POST["title"]."', '".$text."')"))
 						 echo "<script>window.location.href='".$_POST["redirect"]."'</script>";
 					else echo "<script>alert('Fejl ved oprettelse af opslag')</script>";
-				} else {
-					echo "bhu";
 				}
 			break;
 
 		case 'edit':
 
-			//kjshkjahk
+			$prefill = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM `posts` WHERE `post` = ".$_GET["id"]));
 
+			$action = $url;
+			$inputs = [
+				["info", "Opret et nyt opslag"],
+				"title" => ["text", $prefill["title"],"Titel på opslag", 1],
+				"text" => ["richtext", $prefill["text"], "Brødtekst", 1],
+				"redirect" => ["hidden", $prevpage, "", 0],
+				"edit" => ["submit", "Ændre", "", 0],
+				"delete" => ["submit", "Fjern (kan ikke fortrydes)", "", 0]
+			];
 
-			/*if($_POST["submit"]) {
-				if(!empty($_SESSION["initials"]) && !empty($_POST["postid"])) {
+			if(isset($_POST["delete"]))
+				if(mysqli_query($conn, "DELETE FROM `posts` WHERE `post` = ".$_GET["id"]))
+						echo "<script>window.location.href='".$_POST["redirect"]."'</script>";
+				else echo "<script>alert('Fejl - kunne ikke fjerne opslag')</script>";
 
-					$perm = mysqli_fetch_assoc(mysqli_query($conn, "SELECT `id`, `permession` from `employees` WHERE `initials` ='".$_SESSION["initials"]."' LIMIT 1"));
-					$puid = mysqli_fetch_assoc(mysqli_query($conn, "SELECT `post`, `userid` from `POST` WHERE `post` ='".$_POST["postid"]."' LIMIT 1"));
-					if($perm["permission"] == -1 || $perm["id"] == $puid["userid"]) {
-		
-						if(isset($_POST["delete"]))
-							if(mysqli_query($conn, "DELETE FROM `posts` WHERE post = ".$puid["post"]))
-									 echo "<script>window.location.href='".$_POST["redirect"]."'</script>";
-								else echo "<script>alert('Fejl - kunne ikke fjerne opslag')</script>";
+			else if(isset($_POST["edit"]))
+				if(mysqli_query($conn, "UPDATE `posts` SET `title` = '".$_POST["title"]."', `text` = '".$_POST["text"]."' WHERE `post` = ".$_GET["id"]))
+						echo "<script>window.location.href='".$_POST["redirect"]."'</script>";
+				else echo "<script>alert('Fejl - kunne ikke redigere opslag')</script>";
 
-						else {
-							if(!empty($_POST["title"]))
-								if(mysqli_query($conn, "UPDATE `posts` (`title`) VALUES (".$_POST["title"].") WHERE post = ".$puid["post"]))
-									 echo "<script>window.location.href='".$_POST["redirect"]."'</script>";
-								else echo "<script>alert('Fejl - kunne ikke redigere opslag')</script>";
-							if(!empty($_POST["text"]))
-								if(mysqli_query($conn, "INSERT INTO `posts` (`text`) VALUES (".$_POST["text"].") WHERE post = ".$puid["post"]))
-									 echo "<script>window.location.href='".$_POST["redirect"]."'</script>";
-								else echo "<script>alert('Fejl - kunne ikke redigere opslag')</script>";
-						}
-					} else echo "<script>alert('Du har ikke redigheder til at ændre dette opslag')</script>";
-				}
-			}*/
 			break;
 
 	}
