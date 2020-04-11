@@ -22,7 +22,7 @@
 
 	function haveAccessTo($page) {
 		global $conn, $prevpage;
-		$page = preg_replace("/\/home\/jemfixne\/public_html(\/test)\//", "", $page);
+		$page = preg_replace("/\/home\/jemfixne\/public_html(\/test)?\//", "", $page);
 		if(preg_match("/subsites/", $page)) {
 			$blocktype = "PAGE";
 			$page = preg_replace("/subsites/", "", $page);
