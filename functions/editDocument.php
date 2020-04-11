@@ -1,4 +1,5 @@
 <?php
+	haveAccessTo(__FILE__);
 	switch ($_GET["document"]) {
 		case 'new':
 			$current_tags = array();

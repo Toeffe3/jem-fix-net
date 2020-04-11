@@ -1,5 +1,5 @@
 <?php
-	//TODO: Add permission check
+	haveAccessTo(__FILE__);
 	switch ($_GET["post"]) {
 		case 'new':
 

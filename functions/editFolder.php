@@ -1,4 +1,5 @@
 ﻿<?php
+	haveAccessTo(__FILE__);
 	switch ($_GET["folder"]) {
 		case 'new':
 			$action = $url;

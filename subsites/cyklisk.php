@@ -1,4 +1,5 @@
 <?php
+	haveAccessTo(__FILE__);
 	$cyklisker = mysqli_query($conn, "SELECT * FROM `cyklisks` ORDER BY `mustdate` ASC, `start` ASC");
 ?>
 <div id="page" class="bg-gray">

@@ -1,4 +1,5 @@
 <?php
+    haveAccessTo(__FILE__);
     $spaces = mysqli_query($conn, "SELECT * FROM `spaces`");
 ?>
 <div id="page" class="bg-gray">

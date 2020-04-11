@@ -20,6 +20,48 @@
 		$_SESSION["prevpage"][] = $url;
 	}
 
+	function haveAccessTo($page) {
+		global $conn, $prevpage;
+		$page = preg_replace("/\/home\/jemfixne\/public_html(\/test)\//", "", $page);
+		if(preg_match("/subsites/", $page)) {
+			$blocktype = "PAGE";
+			$page = preg_replace("/subsites/", "", $page);
+		} else if(preg_match("/functions/", $page)) {
+			$blocktype = "FUNC";
+			$page = preg_replace("/functions/", "", $page);
+		} else if(preg_match("/documents/", $page)) 
+			if(preg_match("/documents\/.+\//", $page)) {
+				$blocktype = "DOC";
+				$page = preg_replace("/documents\/.+\//", "", $page);
+			} else {
+				$blocktype = "TAG";
+				$page = preg_replace("/documents/", "", $page);
+			}
+		else echo "INGEN ADGANGSREGLER FOR DENNE TYPE!";
+		
+		$userAccessLevel = mysqli_fetch_assoc(mysqli_query($conn, "SELECT `permission` FROM `employees` WHERE `id` = ".$_SESSION['user']))["permission"];
+		$accessCheck = mysqli_query($conn, "SELECT * FROM `permissions` WHERE path LIKE '%".$page."%' AND `blocktype` LIKE '".$blocktype."'");
+		$requiredAccessLevel = mysqli_fetch_assoc($accessCheck)['access'];
+		if(mysqli_num_rows($accessCheck)>0) 
+			if($userAccessLevel == -1) return true;
+			else if($userAccessLevel >= $requiredAccessLevel) return true;
+
+		echo '<div id="page"><div class="dark red bg-white full box"><a href="'.$prevpage.'"><span class="back icon"></span>Tilbage</a><br><br><h1>Du har ikke adgang til denne '.blocktotext($blocktype).'!</h1><p>Kontakt venligst din overordnet hvis du mener dette er en fejl.</p><p>'.ucfirst(blocktotext($blocktype)).': '.$page.'<br>Agdangsniveau: '.(isset($requiredAccessLevel)?$userAccessLevel.'/'.$requiredAccessLevel:'<b>Ikke sat!</b>').'</p></div></div>';
+		include_once "footer.php";
+		exit; //Prevent furthure loading of the page
+
+	}
+
+	function blocktotext($string) {
+		switch ($string) {
+			case 'PAGE': return 'side';
+			case 'FUNC': return 'funktion';
+			case 'TAG': return 'mappe';
+			case 'DOC': return 'fil';
+			default: return 'kategori';
+		}
+	}
+
 	include_once "header.php";
 
 	if(isset($_SESSION["user"])) {

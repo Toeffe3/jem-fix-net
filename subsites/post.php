@@ -1,4 +1,5 @@
 <?php
+	haveAccessTo(__FILE__);
 	include __DIR__."/../assets/lib/Markdown/Michelf/MarkdownExtra.inc.php";
 	use Michelf\Markdown;
 	$post = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM `posts` INNER JOIN `employees` ON `userid` = `id` WHERE `post` = ".$_GET["id"]." LIMIT 1"));

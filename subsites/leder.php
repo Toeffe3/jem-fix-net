@@ -1,5 +1,5 @@
 <?php
-	//TODO: Add permission check
+	haveAccessTo(__FILE__);
 	$leaderpost = mysqli_query($conn,"SELECT * FROM `posts` INNER JOIN `employees` ON `userid` = `id` WHERE `from` = 1");
 ?>
 <div id="page" class="bg-gray">
