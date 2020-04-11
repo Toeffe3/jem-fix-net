@@ -1,4 +1,5 @@
 <?php
+	haveAccessTo(__FILE__);
 	switch ($_GET["users"]) {
 		case 'new':
 

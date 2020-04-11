@@ -1,3 +1,6 @@
+<?php
+	haveAccessTo(__FILE__);
+?>
 <div id="page" class="bg-gray">
 	<div class="full box bg-white">
 		<h1>Resultater</h1><br>
