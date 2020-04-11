@@ -3,7 +3,7 @@
 <html lang="da" dir="ltr">
 	<head>
 		<meta charset="utf-8">
-		<title>Jem&Fix INTRANET</title>
+		<title>Jem&Fix INTRANET - <?php echo ucfirst(preg_replace("/\&(.+?)\=(.+)&?/", ", $2 $1", $_SERVER["QUERY_STRING"])); ?></title>
 		<link rel="stylesheet" type="text/css" href="assets/grid.css">
 		<link rel="stylesheet" type="text/css" href="assets/style.css">
 		<link rel="stylesheet" type="text/css" href="assets/richtext.css">
