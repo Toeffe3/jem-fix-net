@@ -42,7 +42,7 @@
 		$userAccessLevel = mysqli_fetch_assoc(mysqli_query($conn, "SELECT `permission` FROM `employees` WHERE `id` = ".$_SESSION['user']))["permission"];
 		$accessCheck = mysqli_query($conn, "SELECT * FROM `permissions` WHERE path LIKE '%".$page."%' AND `blocktype` LIKE '".$blocktype."'");
 		if($userAccessLevel == -1) return true;
-		else if(mysqli_num_rows($accessCheck)>0) 
+		else if(mysqli_num_rows($accessCheck)>0) {
 			$requiredAccessLevel = mysqli_fetch_assoc($accessCheck)['access'];
 			if($userAccessLevel >= $requiredAccessLevel) return true;
 		} else {
