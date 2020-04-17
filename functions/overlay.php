@@ -40,11 +40,11 @@
 
 						case "fileexplorer":
 							$lastfolder = "";
-							echo "<tr style='height:350px;display:block;overflow-y:scroll;'><td>";
+							echo "<tr><td colspan='2'><div style='max-height:300px;overflow-y:scroll'>";
 							foreach($value[1] as $folder => $files) {
 								echo '<b>'.$folder.'</b>:<ul>';
 									foreach($files as $file)
-										echo '<li style="list-style: none;"><a href="#'.$file.'">'.$file.'</a></li>';
+										echo '<li style="list-style: none;"><a href="?'.$value[2].'&tag='.$folder.'&'.$key.'='.$file.'">'.$file.'</a></li>';
 								echo '</ul>';	
 							}
 							echo "</td></tr>";
