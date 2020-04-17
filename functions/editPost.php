@@ -31,26 +31,46 @@
 			break;
 
 		case 'edit':
+			
+			if(empty($_POST["id"])) {
+				
+				$posts = array();
 
-			$prefill = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM `posts` WHERE `post` = ".$_GET["id"]));
+				$postssql = mysqli_query($conn, "SELECT `post`, `title` FROM `posts` WHERE 1");
+				while($postspre = mysqli_fetch_assoc($postssql)) $posts[$postspre["post"]] = $postspre["title"];
 
-			$action = $url;
-			$inputs = [
-				["info", "Opret et nyt opslag"],
-				"title" => ["text", $prefill["title"],"Titel på opslag", 1],
-				"text" => ["richtext", $prefill["text"], "Brødtekst", 1],
-				"redirect" => ["hidden", $prevpage, "", 0],
-				"edit" => ["submit", "Ændre", "", 0],
-				"delete" => ["submit", "Fjern (kan ikke fortrydes)", "", 0]
-			];
+				$action = $url;
+				$inputs = [
+					["info", "Vælg et opslag"],
+					"id" => ["select", $posts,"Opslagets titel", 1],
+					"redirect" => ["hidden", $prevpage, "", 0],
+					"sel" => ["submit", "Vælg", "", 0]
+				];
+
+			} else {
+			
+				$prefill = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM `posts` WHERE `post` = ".$_POST["id"]));
+
+				$action = $url;
+				$inputs = [
+					["info", "Opret et nyt opslag"],
+					"title" => ["text", $prefill["title"],"Titel på opslag", 1],
+					"text" => ["richtext", $prefill["text"], "Brødtekst", 1],
+					"redirect" => ["hidden", $prevpage, "", 0],
+					"id" => ["hidden", $_POST["id"], "", 0],
+					"edit" => ["submit", "Ændre", "", 0],
+					"delete" => ["submit", "Fjern (kan ikke fortrydes)", "", 0]
+				];
+
+			}
 
 			if(isset($_POST["delete"]))
-				if(mysqli_query($conn, "DELETE FROM `posts` WHERE `post` = ".$_GET["id"]))
+				if(mysqli_query($conn, "DELETE FROM `posts` WHERE `post` = ".$_POST["id"]))
 						echo "<script>window.location.href='".$_POST["redirect"]."'</script>";
 				else echo "<script>alert('Fejl - kunne ikke fjerne opslag')</script>";
 
 			else if(isset($_POST["edit"]))
-				if(mysqli_query($conn, "UPDATE `posts` SET `title` = '".$_POST["title"]."', `text` = '".$_POST["text"]."' WHERE `post` = ".$_GET["id"]))
+				if(mysqli_query($conn, "UPDATE `posts` SET `title` = '".$_POST["title"]."', `text` = '".$_POST["text"]."' WHERE `post` = ".$_POST["id"]))
 						echo "<script>window.location.href='".$_POST["redirect"]."'</script>";
 				else echo "<script>alert('Fejl - kunne ikke redigere opslag')</script>";
 
