@@ -1,4 +1,4 @@
-<?php ?>
+﻿<?php ?>
 
 <div id="overlay" onclick="window.location.href='<?php echo $prevpage;?>'">
 	<form method="post" action="<?php echo $action; ?>" enctype="multipart/form-data" onclick="event.stopPropagation()">
@@ -32,9 +32,7 @@
 								'<img src="assets/icons/yellow/ol.png" height="50px" onclick="ol()" />'.
 								'<img src="assets/icons/yellow/ul.png" height="50px" onclick="ul()" />'.
 								'<img src="assets/icons/yellow/line.png" height="50px" onclick="line()" />'.
-								'<img src="assets/icons/yellow/h1.png" height="50px" onclick="h1()" />'.
-								'<img src="assets/icons/yellow/h2.png" height="50px" onclick="h3()" />'.
-								'<img src="assets/icons/yellow/h3.png" height="50px" onclick="h6()" />'.
+								'<div onclick="h1()" style="color: #FFD500; line-height:45px"><span style="font-size: 14px">H1</span><span style="font-size: 11px">H2</span><span style="font-size: 8px">H3</span></div>'.
 							'</div></td></tr><tr><td colspan="2"><textarea class="rich" name="'.$key.'">'.$value[1].'</textarea></td></tr>';
 							break;
 

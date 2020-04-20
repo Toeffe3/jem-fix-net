@@ -1,4 +1,4 @@
-<?php
+﻿<?php
     haveAccessTo(__FILE__);
     $spaces = mysqli_query($conn, "SELECT * FROM `spaces`");
 ?>
@@ -9,7 +9,7 @@
             <tr>
                 <th>Lager id</th>
                 <th>Space id</th>
-                <th>R�kke</th>
+                <th>Række</th>
                 <th>Hylde</th>
                 <th>Celle</th>
                 <th>Antal</th>
