@@ -27,13 +27,13 @@
 		  <li><a href="?leder&folder=edit">Rediger TAG</a></li>
 		  <li><a href="?leder&folder=edit&remove">Fjern TAG</a></li>
 		  <li><br></li>
-		  <li><a href="?leder&cyklisk=new">Ny cyklisk*</a></li>
-		  <li><a href="?leder&cyklisk=edit">Rediger cyklisk*</a></li>
-		  <li><a href="?leder&cyklisk=edit&remove">Fjern cyklisk*</a></li>
+		  <li><a href="?leder&cyklisker=new">Ny cyklisk*</a></li>
+		  <li><a href="?leder&cyklisker=edit">Rediger cyklisk*</a></li>
+		  <li><a href="?leder&cyklisker=edit&remove">Fjern cyklisk*</a></li>
 		  <li><br></li>
-		  <li><a href="?leder&space=new">Nyt space*</a></li>
-		  <li><a href="?leder&space=edit">Rediger space*</a></li>
-		  <li><a href="?leder&space=edit&remove">Fjern space*</a></li>
+		  <li><a href="?leder&spaces=new">Nyt space*</a></li>
+		  <li><a href="?leder&spaces=edit">Rediger space*</a></li>
+		  <li><a href="?leder&spaces=edit&remove">Fjern space*</a></li>
 		  <li><br></li>
 		  <li><a href="?leder&users=new">Opret ny bruger</a></li>
 		  <li><a href="?leder&users=edit">Rediger bruger</a></li>
