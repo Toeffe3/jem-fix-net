@@ -1,18 +1,24 @@
 <?php
 	haveAccessTo(__FILE__);
 	
-	$perms = [
+	$perms = array();
+	$permlist = [
 		0 => "Kun visning",
 		1 => "Ansat",
-		2 => "Ansat med rettigheder",
-		3 => "Højtstillede ansat",
+		2 => "Ansat (Salg/Marketing)",
+		3 => "Højtstillet ansat",
 		4 => "Manager",
-		5 => "Butikschef",
-	   -1 => "Admin"
+		5 => "Butikschef"
 	];
 
+	$key = $_SESSION["perm"];
+	for($i = 0; $i < sizeof($permlist); $i++)
+		if($key != -1 && $i > $key) break;
+		else $perms[$i] = $permlist[$i];
+	if($key == -1) $perms[-1] = "Admin";
+
 	$users = array();
-	$sql = mysqli_query($conn, "SELECT * FROM `employees` WHERE 1");
+	$sql = mysqli_query($conn, "SELECT * FROM `employees` WHERE (`permission` != -1  && `permission` < ".($_SESSION["perm"]==-1?10:$_SESSION["perm"]).") || `id` = '".$_SESSION["user"]."'");
 	while($user = mysqli_fetch_assoc($sql))
 		$users[$user["id"]] = $user["initials"].": ".$user["fullname"];
 	switch ($_GET["users"]) {
