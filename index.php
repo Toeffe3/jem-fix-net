@@ -1,4 +1,5 @@
 <?php
+	// Apply settings/variables/functions to all pages and functions
 	declare(strict_types = 1);
 	session_start();
 	if (!defined(__DIR__)) define(__DIR__, dirname(__FILE__));
@@ -20,13 +21,14 @@
 		$_SESSION["prevpage"][] = $url;
 	}
 
+	// Prevent URLs to be moved or overwritten in the URL-array
 	function ignoreRedirect() {
 		global $prevpage;
 		$url = $prevpage;
 		$_SESSION["prevpage"][0] = $prevpage;
 		$_SESSION["prevpage"][1] = $url;
 	}
-
+	// Determines whether session user can(has access to) load page
 	function haveAccessTo($page) {
 		global $conn, $prevpage;
 		$page = preg_replace("/\/home\/jemfixne\/public_html(\/test)?\//", "", $page);
@@ -59,6 +61,7 @@
 		}
 	}
 
+	// Convert blocktypeid to words
 	function blocktotext($string) {
 		switch ($string) {
 			case 'PAGE': return 'side';
@@ -69,26 +72,26 @@
 		}
 	}
 
+	// Construct page
 	include_once "header.php";
-
 	if(isset($_SESSION["user"])) {
-
-		if(isset($_GET["users"])) include_once "functions/editUser.php";
-		else if(isset($_GET["post"])) include_once "functions/editPost.php";
-		else if(isset($_GET["document"])) include_once "functions/editDocument.php";
-		else if(isset($_GET["folder"])) include_once "functions/editFolder.php";
-		else if(isset($_GET["pin"])) include_once "functions/editPin.php";
-		
-		if(isset($_GET["login"])) include_once "subsites/login.php";
-		else if(isset($_GET["nyheder"]))
-			if(!empty($_GET["id"])) include_once "subsites/post.php";
-			else include_once "subsites/nyheder.php";
-		else if(isset($_GET["space"])) include_once "subsites/space.php";
-		else if(isset($_GET["cyklisk"])) include_once "subsites/cyklisk.php";
-		else if(isset($_GET["leder"])) include_once "subsites/leder.php";
-		else if(isset($_GET["hr"])) include_once "subsites/hr.php";
-		else if(isset($_GET["search"])) include_once "subsites/search.php";
-		else include_once "subsites/nyheder.php";
+		// Functions
+			 if(isset($_GET["users"]))		include_once "functions/editUser.php";
+		else if(isset($_GET["post"]))		include_once "functions/editPost.php";
+		else if(isset($_GET["document"]))	include_once "functions/editDocument.php";
+		else if(isset($_GET["folder"]))		include_once "functions/editFolder.php";
+		else if(isset($_GET["pin"]))		include_once "functions/editPin.php";
+		else if(isset($_GET["cyklisker"]))	include_once "functions/editCyklisk.php";
+		else if(isset($_GET["spaces"]))		include_once "functions/editSpace.php";
+		// Pages
+			 if(isset($_GET["login"]))		include_once "subsites/login.php";
+		else if(isset($_GET["space"]))		include_once "subsites/space.php";
+		else if(isset($_GET["cyklisk"]))	include_once "subsites/cyklisk.php";
+		else if(isset($_GET["leder"]))		include_once "subsites/leder.php";
+		else if(isset($_GET["hr"]))			include_once "subsites/hr.php";
+		else if(isset($_GET["search"]))		include_once "subsites/search.php";
+		else if(isset($_GET["nyheder"]) && !empty($_GET["id"])) include_once "subsites/post.php";
+		else include_once "subsites/nyheder.php"; //Defaults to nyheder page
+	
 	} else include_once "subsites/login.php";
-
 	include_once "footer.php";
