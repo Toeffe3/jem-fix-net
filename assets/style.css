@@ -186,6 +186,13 @@ h4 {
 .options:hover span a {
 	display: inherit !important;
 }
+.search.bar {
+	width: calc(100% - 80px);
+	height: 10px;
+	border: 0px;
+	border-radius:250px;
+	padding: 15px;
+}
 .button {
 	width: 90px;
 	height: 20px;
@@ -196,6 +203,21 @@ h4 {
 .button:hover {
 	color: #FFD500;
 	background-color: #C81C26;
+}
+input.button {
+	width: 90px;
+	height: 20px;
+	padding: 0.5em;
+	margin: 10px;
+	text-align: center;
+	border: none;
+}
+input.button:hover {
+	color: initial;
+	background-color: initial;
+}
+form {
+	height: auto;
 }
 #functions {
 	list-style: none;

@@ -20,6 +20,13 @@
 		$_SESSION["prevpage"][] = $url;
 	}
 
+	function ignoreRedirect() {
+		global $prevpage;
+		$url = $prevpage;
+		$_SESSION["prevpage"][0] = $prevpage;
+		$_SESSION["prevpage"][1] = $url;
+	}
+
 	function haveAccessTo($page) {
 		global $conn, $prevpage;
 		$page = preg_replace("/\/home\/jemfixne\/public_html(\/test)?\//", "", $page);
