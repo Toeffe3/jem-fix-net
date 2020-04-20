@@ -1,36 +1,60 @@
-#page {
+﻿#page {
+	padding: 10px 40px;
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(3, 150px);
+}
+
+#hr {
 	padding: 40px;
 	display: grid;
 	grid-gap: 20px;
 	grid-template-columns: repeat(3, 1fr);
-	grid-template-rows: repeat(4, 150px);
+	grid-template-rows: repeat(6, 75px);
 }
 
-#page .box {
+.box {
 	grid-column: span 2;
 	grid-row: span 1;
 	height: auto;
+	padding: 10px;
+	padding-top: 10px !important;
+	overflow-x: hidden;
+	overflow-y: auto;
 }
 
-#page .large.box {
+.large.box {
 	grid-row: span 2;
 }
 
-#page .small.box {
+.small.box {
 	grid-column: span 1;
 }
-
-#page .tall.box {
+#hr .small.box {
 	grid-column: span 1;
 	grid-row: span 2;
 }
 
-#page .taller.box {
+.tall.box {
 	grid-column: span 1;
-	grid-row: span 4;
+	grid-row: span 2;
+}
+#hr .tall.box {
+	grid-column: span 1;
+	grid-row: span 3;
 }
 
-#page .full.box {
+.taller.box {
+	grid-column: span 1;
+	grid-row: span 3;
+}
+#hr .taller.box {
+	grid-column: span 1;
+	grid-row: span 6;
+}
+
+.full.box {
 	grid-column: span 3;
 	grid-row: span 4;
 }

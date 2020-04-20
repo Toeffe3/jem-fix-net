@@ -1,4 +1,4 @@
-html, body {
+﻿html, body {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -154,17 +154,6 @@ h4 {
 }
 #login {
 	padding: 20px;
-}
-.box {
-	padding: 10px;
-	padding-top: 10px !important;
-	overflow-x: hidden;
-	overflow-y: auto;
-}
-.box, .panel {
-	height: 100px;
-	padding: 20px;
-	padding-top: 10px!important
 }
 .post {
 	font-weight: normal;
