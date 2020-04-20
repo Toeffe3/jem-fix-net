@@ -41,8 +41,10 @@
 							echo "<tr><td colspan='2'><div style='max-height:300px;overflow-y:scroll'>";
 							foreach($value[1] as $folder => $files) {
 								echo '<b>'.$folder.'</b>:<ul>';
-									foreach($files as $file)
-										echo '<li style="list-style: none;"><a href="?'.$value[2].'&tag='.$folder.'&'.$key.'='.$file.'">'.$file.'</a></li>';
+								$documents = mysqli_query($conn, "SELECT * FROM `documents` WHERE `path` LIKE '".$folder."/%'");
+									while($file = mysqli_fetch_assoc($documents)) {
+										echo '<li style="list-style: none;"><a href="?'.$value[2].'&'.$key.'='.$file["path"].'">'.$file["displayname"].'</a></li>';
+								}
 								echo '</ul>';	
 							}
 							echo "</td></tr>";
