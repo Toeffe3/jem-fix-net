@@ -14,6 +14,7 @@
 		if (mysqli_num_rows($login) == 1) {
 			$acc = mysqli_fetch_assoc($login);
 			$_SESSION["user"] = $acc["id"];
+			$_SESSION["perm"] = $acc["permission"];
 			$_SESSION["initials"] = $acc["initials"];
 			echo '<script>window.location.href="'.$prevpage.'"</script>';
 		} else echo '<script>window.location.href="?login=failure"</script>';

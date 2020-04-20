@@ -2,12 +2,11 @@
 	haveAccessTo(__FILE__);
 	switch ($_GET["post"]) {
 		case 'new':
-
-			$categories = [
-				0 => "Øvrige",
-				1 => "Ledelsen",
-				2 => "Indkøb"
-			];
+			
+			$key = $_SESSION["perm"]!=-1?$_SESSION["perm"]:9;
+			if($key > 0) $categories[0] = "Øvrige";
+			if($key > 4) $categories[1] = "Ledelsen";
+			if($key > 1) $categories[2] = "Indkøb";
 
 			$action = $url;
 			$inputs = [
