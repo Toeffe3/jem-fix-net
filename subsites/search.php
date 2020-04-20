@@ -13,9 +13,8 @@
 		<table>
 			<?php
 				if(!empty($_GET["q"]))
-					$documents = mysqli_query($conn, "SELECT * FROM `documents` WHERE `displayname` LIKE '%".$_GET["q"]."%'");
-				else
-					$documents = mysqli_query($conn, "SELECT * FROM `documents`");
+					 $documents = mysqli_query($conn, "SELECT * FROM `documents` WHERE `displayname` LIKE '%".$_GET["q"]."%'");
+				else $documents = mysqli_query($conn, "SELECT * FROM `documents`");
 	
 				while($document = mysqli_fetch_assoc($documents)) {
 					preg_match("/(^.*?)(".$_GET["q"].")(.*$)/i", $document["displayname"], $matches);
