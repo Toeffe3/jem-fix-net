@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 	haveAccessTo(__FILE__);
 	include __DIR__."/../assets/lib/Markdown/Michelf/MarkdownExtra.inc.php";
 	use Michelf\Markdown;

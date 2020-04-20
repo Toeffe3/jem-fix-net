@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 	if ($_GET["login"]=="logout") {
 		echo "Logging out...";
 		session_start();

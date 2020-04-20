@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 	haveAccessTo(__FILE__);
 	$leaderpost = mysqli_query($conn,"SELECT * FROM `posts` INNER JOIN `employees` ON `userid` = `id` WHERE `from` = 1");
 ?>
@@ -23,9 +23,9 @@
 		  <li><a href="?leder&document=edit">Rediger dokument</a></li>
 		  <li><a href="?leder&document=remove">Fjern dokument</a></li>
 		  <li><br></li>
-		  <li><a href="?leder&folder=new">Opret nyt tag</a></li>
-		  <li><a href="?leder&folder=edit">Rediger tag</a></li>
-		  <li><a href="?leder&folder=edit&remove">Fjern tag</a></li>
+		  <li><a href="?leder&folder=new">Opret nyt TAG</a></li>
+		  <li><a href="?leder&folder=edit">Rediger TAG</a></li>
+		  <li><a href="?leder&folder=edit&remove">Fjern TAG</a></li>
 		  <li><br></li>
 		  <li><a href="?leder&cyklisk=new">Ny cyklisk*</a></li>
 		  <li><a href="?leder&cyklisk=edit">Rediger cyklisk*</a></li>

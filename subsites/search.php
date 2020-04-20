@@ -1,10 +1,10 @@
-<?php
+ï»¿<?php
 	haveAccessTo(__FILE__);
 ?>
 <form method="GET" action="" style="padding: 20px 40px 0px 40px;" >
 	<input type="hidden" name="search">
-	<input class="search bar" type="text" name="q" placeholder="Søg efter dokumenter" style="font-family: 'Bahnschrift';">
-	<input class="search icon red button" type="submit">
+	<input class="search bar dark red bg-white" type="text" name="q" placeholder="SÃ¸g efter dokumenter" style="font-family: 'Bahnschrift';" value="<?php echo $_GET["q"]; ?>">
+	<input class="search icon red button" type="submit" value="">
 </form>
 <div id="page" class="bg-gray">
 	<div class="full box bg-white">
@@ -24,9 +24,9 @@
 			?>
 		</table>
 		<br>
-		<h2>Brødtekst</h2>
+		<h2>BrÃ¸dtekst</h2>
 		<table>
-			<tr><td>Dene funktion er ikke tilgængelige endnu...</td></tr>
+			<tr><td>Dene funktion er ikke tilgÃ¦ngelige endnu...</td></tr>
 		</table>
 	</div>
 </div>
