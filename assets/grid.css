@@ -54,6 +54,14 @@
 	grid-row: span 6;
 }
 
+.onethird.box {
+	grid-column: span 1!important;
+}
+
+.twothird.box {
+	grid-column: span 2!important;
+}
+
 .full.box {
 	grid-column: span 3;
 	grid-row: span 4;

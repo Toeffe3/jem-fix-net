@@ -17,6 +17,12 @@
 						echo '</select>'.($value[3]==1?"*":"").'<td></tr>';
 						break;
 
+					case "multiselect":
+						echo "<tr><td>".$value[2].': </td><td><select multiple name="'.$key.'[]">';
+						foreach($value[1] as $okey => $option) echo '<option value="'.$okey.'">'.$option.'</option>';
+						echo '</select>'.($value[3]==1?"*":"").'<td></tr>';
+						break;
+
 					case "textarea":
 						echo '<tr><td>'.$value[2].': </td></tr><tr><td colspan="2"><textarea name="'.$key.'">'.$value[1].'</textarea></td></tr>';
 						break;
