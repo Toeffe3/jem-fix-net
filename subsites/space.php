@@ -13,7 +13,7 @@
 	}
 ?>
 <div id="page" class="bg-gray">
-    <div class="full onethird box bg-white">
+    <div class="full onethird box bg-white" style="max-height: 665px; overflow-y: auto">
         <h1>Spaces</h1><br>
         <table id="cyklisk">
             <tr>
@@ -30,9 +30,9 @@
 
         </table>
     </div>
-    <div class="full twothird box bg-white">
+    <div class="full twothird box bg-white" style="overflow-x: scroll">
         <h1>Kort</h1> - Klik og træk på kasser for at flytte dem.<br>
-        <svg id="map" width="100%" height="600px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <svg id="map" width="1000px" height="600px" viewBox="1000px 600px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <?php
                 $sp = mysqli_query($conn, "SELECT * FROM `spaces`");
                 while($p = mysqli_fetch_assoc($sp))

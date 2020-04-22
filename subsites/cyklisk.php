@@ -22,7 +22,7 @@
 					$mustdate = date_create($cykliskider["mustdate"]);
 					
 					foreach($spaces as $space) {
-						echo '<tr><th>X</th><th><a href="?space&id='.$space.'">'.$space.'</a></th>';
+						echo '<tr><th> </th><th><a href="?space&id='.$space.'">'.$space.'</a></th>';
 						for($j = (date("W")); $j < 15+(date("W")); $j++) {
 							if($j == (date_format($mustdate,'W')))
 								echo '<th>S</th>';
