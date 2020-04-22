@@ -1,6 +1,6 @@
 ﻿<?php
 	haveAccessTo(__FILE__);
-	$leaderpost = mysqli_query($conn,"SELECT * FROM `posts` INNER JOIN `employees` ON `userid` = `id` WHERE `from` = 1");
+	$leaderpost = mysqli_query($conn,"SELECT * FROM `posts` INNER JOIN `employees` ON `userid` = `id` WHERE `from` BETWEEN 2 AND 3");
 ?>
 <div id="page" class="bg-gray">
 	<div class="large box bg-white">

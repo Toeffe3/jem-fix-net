@@ -5,8 +5,19 @@
 			
 			$key = $_SESSION["perm"]!=-1?$_SESSION["perm"]:9;
 			if($key > 0) $categories[0] = "Øvrige";
-			if($key > 4) $categories[1] = "Ledelsen";
-			if($key > 1) $categories[2] = "Indkøb";
+			if($key > 1) $categories[1] = "Indkøb";
+			if($key > 4) {
+				$categories[2] = "Ledelsen";
+				$categories[3] = "[Ledere] Ledelsen";
+			}
+			if($key > 3) {
+				$categories[4] = "[HR] Formularer";
+				$categories[5] = "[HR] Genveje";
+				$categories[6] = "[HR] Personalegoder";
+				$categories[7] = "[HR] Rettighedder og pligter";
+				$categories[8] = "[HR] MUS";
+				$categories[9] = "[HR] Persondata forordning";
+			}
 
 			$action = $url;
 			$inputs = [
@@ -18,7 +29,6 @@
 				"submit" => ["submit", "Opret", "", 0]
 			];
 			
-
 			if($_POST["submit"])
 				if(!empty($_SESSION["user"]) && !empty($_POST["title"]) && !empty($_POST["text"])) {
 					$text = mysqli_real_escape_string($conn, htmlspecialchars($_POST["text"], ENT_QUOTES, "UTF-8"));
@@ -32,9 +42,7 @@
 		case 'edit':
 			
 			if(empty($_POST["id"])) {
-				
 				$posts = array();
-
 				$postssql = mysqli_query($conn, "SELECT `post`, `title` FROM `posts` WHERE 1");
 				while($postspre = mysqli_fetch_assoc($postssql)) $posts[$postspre["post"]] = $postspre["title"];
 
@@ -49,7 +57,6 @@
 			} else {
 			
 				$prefill = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM `posts` WHERE `post` = ".$_POST["id"]));
-
 				$action = $url;
 				$inputs = [
 					["info", "Opret et nyt opslag"],
