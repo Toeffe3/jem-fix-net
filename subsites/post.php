@@ -2,7 +2,7 @@
 	haveAccessTo(__FILE__);
 	include __DIR__."/../assets/lib/Markdown/Michelf/MarkdownExtra.inc.php";
 	use Michelf\Markdown;
-	$post = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM `posts` INNER JOIN `employees` ON `userid` = `id` WHERE `post` = ".$_GET["id"]." LIMIT 1"));
+	$post = mysqli_fetch_assoc(mysqli_query($conn,"SELECT `posts`.`date`, `fullname`, `title`, `text`, `userid` FROM `posts` INNER JOIN `employees` ON `userid` = `id` WHERE `post` = ".$_GET["id"]." LIMIT 1"));
 	$textcontent = Markdown::defaultTransform($post["text"]);
 ?>
 <div id="page" class="bg-gray">
