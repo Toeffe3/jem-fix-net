@@ -72,8 +72,21 @@
 		}
 	}
 
+	function cookie_files() {
+		global $conn;
+		$lastfolder = "";
+		$directory = dir(__DIR__."/documents/");
+		while(false !== ($folder = $directory->read()))
+			if($folder != "." && $folder != ".." && !preg_match('/\./', $folder)) {
+				$doc = mysqli_query($conn, "SELECT * FROM `documents` WHERE `path` LIKE '".$folder."/%'");
+				while($file = mysqli_fetch_assoc($doc)) 
+					setcookie("SSF_".urlencode($file["displayname"]), $file["path"], time()+600);
+			}
+	}
+	if(isset($_GET["post"])) cookie_files();
+
 	// Construct page
-	include_once "header.php";
+											include_once "header.php";
 	if(isset($_SESSION["user"])) {
 		// Functions
 			 if(isset($_GET["users"]))		include_once "functions/editUser.php";
@@ -90,8 +103,8 @@
 		else if(isset($_GET["leder"]))		include_once "subsites/leder.php";
 		else if(isset($_GET["hr"]))			include_once "subsites/hr.php";
 		else if(isset($_GET["search"]))		include_once "subsites/search.php";
-		else if(isset($_GET["nyheder"]) && !empty($_GET["id"])) include_once "subsites/post.php";
-		else include_once "subsites/nyheder.php"; //Defaults to nyheder page
-	
-	} else include_once "subsites/login.php";
-	include_once "footer.php";
+		else if(isset($_GET["nyheder"]) &&
+				!empty($_GET["id"]))		include_once "subsites/post.php";
+		else								include_once "subsites/nyheder.php"; //Defaults to nyheder page
+	} else									include_once "subsites/login.php";
+											include_once "footer.php";
