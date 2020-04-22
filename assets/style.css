@@ -38,6 +38,7 @@ a, a:active, a:visited {
 }
 
 .icon.add {background-image: url("icons/red/add.png");}
+.icon.edit {background-image: url("icons/red/edit.png");}
 .icon.back {background-image: url("icons/red/back.png");}
 .icon.remove {background-image: url("icons/red/remove.png");}
 .icon.search.red {background-image: url("icons/red/search.png");}

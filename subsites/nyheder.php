@@ -1,9 +1,11 @@
 <?php
 	haveAccessTo(__FILE__);
-
+	include __DIR__."/../assets/lib/Markdown/Michelf/MarkdownExtra.inc.php";
+	use Michelf\Markdown;
 	$posts = mysqli_query($conn, "SELECT * FROM `posts` INNER JOIN `employees` ON `userid` = `id` WHERE `from` = 0");
 	$cykliskpost = mysqli_query($conn, "SELECT * FROM `posts` INNER JOIN `employees` ON `userid` = `id` WHERE `from` = 1");
 	$leaderpost = mysqli_query($conn, "SELECT * FROM `posts` INNER JOIN `employees` ON `userid` = `id` WHERE `from` = 2");
+	$minbutik = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM `posts` WHERE `post` = 0 LIMIT 1"));
 
 	$pins = mysqli_query($conn, "SELECT * FROM `pinned` WHERE `userid` = ".$_SESSION["user"]);
 ?>
@@ -25,7 +27,8 @@
 		</div>
 	</div>
 	<div class="tall box bg-yellow">
-		<h4>Min butik</h4>
+		<h4 style="display:inline">Min butik</h4><?php if($_SESION["perm"] >= 4 || $_SESSION["perm"] == -1) echo '<a href="?post=edit&id=0" class="edit icon" style="position: relative;top: -5px;left: 10px;">&ltRet&gt</a>';?><br>
+		<?php echo Markdown::defaultTransform($minbutik["text"]); ?>
 	</div>
 	<div class="large box bg-white">
 		<h4>Aktuelt fra indkøb</h4>
