@@ -41,7 +41,7 @@
 
 		case 'edit':
 			
-			if(empty($_POST["id"])) {
+			if(!(!empty($_GET["id"]) || empty($_POST["id"]))) {
 				$posts = array();
 				$postssql = mysqli_query($conn, "SELECT `post`, `title` FROM `posts` WHERE 1");
 				while($postspre = mysqli_fetch_assoc($postssql)) $posts[$postspre["post"]] = $postspre["title"];
@@ -55,17 +55,17 @@
 				];
 
 			} else {
-			
-				$prefill = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM `posts` WHERE `post` = ".$_POST["id"]));
+				$postid = empty($_POST["id"])?($_GET["id"]):$_POST["id"];
+				$prefill = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM `posts` WHERE `post` = ".$postid));
 				$action = $url;
 				$inputs = [
 					["info", "Opret et nyt opslag"],
 					"title" => ["text", $prefill["title"],"Titel på opslag", 1],
 					"text" => ["richtext", $prefill["text"], "Brødtekst", 1],
 					"redirect" => ["hidden", $prevpage, "", 0],
-					"id" => ["hidden", $_POST["id"], "", 0],
+					"id" => ["hidden", $postid, "", 0],
 					"edit" => ["submit", "Ændre", "", 0],
-					"delete" => ["submit", "Fjern (kan ikke fortrydes)", "", 0]
+					"delete" => ($postid>0?["submit", "Fjern (kan ikke fortrydes)", "", 0]:["info", "Denne post kan ikke fjernes"])
 				];
 
 			}

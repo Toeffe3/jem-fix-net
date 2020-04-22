@@ -1,52 +1,39 @@
 <?php
 	haveAccessTo(__FILE__);
-
-	$allposts = mysqli_query($conn,"SELECT * FROM `posts` INNER JOIN `employees` ON `userid` = `id` WHERE `from` > 3");
-	$posts = array();
-
-	while($post = mysqli_fetch_assoc($allposts))
-		$posts[$post["from"]][] = [$post["initials"], $post["post"], $post["title"]];
+	include __DIR__."/../assets/lib/Markdown/Michelf/MarkdownExtra.inc.php";
+	use Michelf\Markdown;
+	$sql = mysqli_query($conn, "SELECT * FROM `posts` WHERE `post` < 0 ORDER BY `post` DESC");
+	while($post = mysqli_fetch_assoc($sql))
+		$posts[] = $post;
 ?>
 <div id="hr" class="bg-gray">
   <div class="taller box bg-white">
-		<h1>Formularer</h1>
-		<?php if(!empty($posts[4])) foreach($posts[4] as $post) {
-			echo '<div class="post">['.$post[0].']: <a href=?nyheder&id='.$post[1].'>'.$post[2].'</a></div>';
-		} ?>
+		<h1 style="display: inline">Formularer</h1><?php if($_SESION["perm"] >= 4 || $_SESSION["perm"] == -1) echo '<a href="?post=edit&id=-1" class="edit icon" style="position: relative;top: -5px;left: 10px;">&ltRet&gt</a>';?>
+		<?php echo Markdown::defaultTransform($posts[0]["text"]); ?>
 	</div>
 
   <div class="tall box bg-white">
-		<h1>Genveje</h1>
-		<?php if(!empty($posts[5])) foreach($posts[5] as $post) {
-			echo '<div class="post">['.$post[0].']: <a href=?nyheder&id='.$post[1].'>'.$post[2].'</a></div>';
-		} ?>
+		<h1 style="display: inline">Genveje</h1><?php if($_SESION["perm"] >= 4 || $_SESSION["perm"] == -1) echo '<a href="?post=edit&id=-2" class="edit icon" style="position: relative;top: -5px;left: 10px;">&ltRet&gt</a>';?>
+		<?php echo Markdown::defaultTransform($posts[1]["text"]); ?>
 	</div>
 
   <div class="small box bg-white">
-		<h1>Rettighedder og pligter</h1>
-		<?php if(!empty($posts[6])) foreach($posts[6] as $post) {
-			echo '<div class="post">['.$post[0].']: <a href=?nyheder&id='.$post[1].'>'.$post[2].'</a></div>';
-		} ?>
+		<h1 style="display: inline">Rettighedder og pligter</h1><?php if($_SESION["perm"] >= 4 || $_SESSION["perm"] == -1) echo '<a href="?post=edit&id=-3" class="edit icon" style="position: relative;top: -5px;left: 10px;">&ltRet&gt</a>';?>
+		<?php echo Markdown::defaultTransform($posts[2]["text"]); ?>
 	</div>
 
 	<div class="small box bg-white">
-		<h1>MUS</h1>
-		<?php if(!empty($posts[7])) foreach($posts[7] as $post) {
-			echo '<div class="post">['.$post[0].']: <a href=?nyheder&id='.$post[1].'>'.$post[2].'</a></div>';
-		} ?>
+		<h1 style="display: inline">MUS</h1><?php if($_SESION["perm"] >= 4 || $_SESSION["perm"] == -1) echo '<a href="?post=edit&id=-4" class="edit icon" style="position: relative;top: -5px;left: 10px;">&ltRet&gt</a>';?>
+		<?php echo Markdown::defaultTransform($posts[3]["text"]); ?>
 	</div>
 
 	<div class="tall box bg-white">
-		<h1>Personalegoder</h1>
-		<?php if(!empty($posts[8])) foreach($posts[8] as $post) {
-			echo '<div class="post">['.$post[0].']: <a href=?nyheder&id='.$post[1].'>'.$post[2].'</a></div>';
-		} ?>
+		<h1 style="display: inline">Personalegoder</h1><?php if($_SESION["perm"] >= 4 || $_SESSION["perm"] == -1) echo '<a href="?post=edit&id=-5" class="edit icon" style="position: relative;top: -5px;left: 10px;">&ltRet&gt</a>';?>
+		<?php echo Markdown::defaultTransform($posts[4]["text"]); ?>
 	</div>
 
 	<div class="small box bg-white">
-		<h1>Persondata forordning</h1>
-		<?php if(!empty($posts[9])) foreach($posts[9] as $post) {
-			echo '<div class="post">['.$post[0].']: <a href=?nyheder&id='.$post[1].'>'.$post[2].'</a></div>';
-		} ?>
+		<h1 style="display: inline">Persondata forordning</h1><?php if($_SESION["perm"] >= 4 || $_SESSION["perm"] == -1) echo '<a href="?post=edit&id=-6" class="edit icon" style="position: relative;top: -5px;left: 10px;">&ltRet&gt</a>';?>
+		<?php echo Markdown::defaultTransform($posts[5]["text"]); ?>
 	</div>
 </div>

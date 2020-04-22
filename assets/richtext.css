@@ -1,4 +1,4 @@
-.postcontent {
+﻿.postcontent {
 	margin: 10px;
 	margin-top: 20px;
 }
@@ -33,7 +33,7 @@
 	margin: 0px;
 }
 .postcontent hr {
-	color: #707070
+	color: #707070;
 }
 .postcontent code {
 
@@ -42,4 +42,8 @@
 	color: #707070;
 	padding-left: 5px;
 	border-left: 3px solid #707070;
+}
+
+hr {
+	color: #C81C26;
 }
