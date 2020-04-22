@@ -10,10 +10,9 @@
 				"submit" => ["submit", "Opret", "", 0]
 			];
 
-			if($_POST["submit"]) {
-				mkdir(__DIR__."/../documents/".$_POST["tagname"]);
-				echo "<script>window.location.href='".$_POST["redirect"]."'</script>";
-			}
+			if($_POST["submit"]) 
+				if(mkdir(__DIR__."/../documents/".$_POST["tagname"]))
+					echo "<script>window.location.href='".$_POST["redirect"]."'</script>";
 			break;
 
 		case 'edit':
@@ -38,19 +37,14 @@
 				$inputs["submit"] = ["submit", "Ændre", "", 0];
 			}
 
-			if($_POST["submit"]) {
-
-				if(!empty($_POST["newname"])) {
-					rename(__DIR__."/../documents/".$_POST["seltag"], __DIR__."/../documents/".$_POST["newname"]);
-					echo "<script>window.location.href='".$_POST["redirect"]."'</script>";
-				}
-
-			} else if($_POST["delete"])
+			if($_POST["submit"])
+				if(!empty($_POST["newname"]))
+					if(rename(__DIR__."/../documents/".$_POST["seltag"], __DIR__."/../documents/".$_POST["newname"]))
+						echo "<script>window.location.href='".$_POST["redirect"]."'</script>";
+			else if($_POST["delete"])
 				if($_POST["seltag"] == $_POST["confirm"])
 					if(rmdir(__DIR__."/../documents/".$_POST["seltag"]))
 						echo "<script>window.location.href='".$_POST["redirect"]."'</script>";
-
-			
 			break;
 	}
 	

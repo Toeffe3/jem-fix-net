@@ -21,6 +21,7 @@
 	$sql = mysqli_query($conn, "SELECT * FROM `employees` WHERE (`permission` != -1  && `permission` < ".($_SESSION["perm"]==-1?10:$_SESSION["perm"]).") || `id` = '".$_SESSION["user"]."'");
 	while($user = mysqli_fetch_assoc($sql))
 		$users[$user["id"]] = $user["initials"].": ".$user["fullname"];
+
 	switch ($_GET["users"]) {
 		case 'new':
 			
@@ -30,7 +31,7 @@
 				"name" => ["text", "", "Fulde navn", 1],
 				"initials" => ["text", "", "Initialer", 1],
 				"password" => ["password", "", "Kodeord", 0],
-				"permission" => ["select", $perms, "rettigheder", 1],
+				"permission" => ["select", $perms, "Rettigheder", 1],
 				"redirect" => ["hidden", $prevpage, "", 0],
 				"submit" => ["submit", "Opret", "", 0]
 			];

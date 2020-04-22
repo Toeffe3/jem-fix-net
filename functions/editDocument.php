@@ -215,13 +215,12 @@
 				"submit" => ["submit", "Fjern (kan ikke fortrydes)", "", 0]
 			];
 
-			if($_POST["submit"]) {
+			if($_POST["submit"])
 				if(mysqli_query($conn, "DELETE FROM `documents` WHERE `path` = '".$from."'"))
 				    if(unlink(__DIR__."/../documents/".$_GET["tag"]."/".$_GET["sel"]))
 						echo "<script>window.location.href='".$_POST["redirect"]."'</script>";
 				    else echo "<script>alert('Fejl ved sletning af fil')</script>"; 
 				else echo "<script>alert('Fejl i databasen ved flytning af fil')</script>";
-			}
 
 			break;
 	}

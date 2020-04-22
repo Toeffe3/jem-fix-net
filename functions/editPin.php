@@ -8,7 +8,10 @@
 				"?login=logout" => "Log af",
 				"?post=new" => "Opret opslag",
 				"?post=edit" => "Ret opslag",
-				"?document=new" => "Upload dokument"
+				"?document=new" => "Upload dokument",
+				"?document=edit" => "Ret dokument",
+				"?document=remove" => "Slet dokument",
+				"?users=edit" => "ret en bruger",
 			];
 
 			$action = $url;

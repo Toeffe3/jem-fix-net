@@ -6,6 +6,10 @@ Exclude deployment tools
 Exclude libraries
 \lib
 
+Exclude serverside only-relavant files
+\documents
+pass
+
 Exclude workspace folders
 .vs
 .git
