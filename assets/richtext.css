@@ -20,30 +20,15 @@
 	font-size: 14px;
 	color: #DEBE1D;
 }
-.postcontent h4 {
-	color: #707070;
-}
-.postcontent h5 {
-	color: #707070;
-}
-.postcontent h6 {
-	color: #707070;
-}
-.postcontent p {
-	margin: 0px;
-}
-.postcontent hr {
-	color: #707070;
-}
-.postcontent code {
-
-}
+.postcontent h4 {color: #707070;}
+.postcontent h5 {color: #707070;}
+.postcontent h6 {color: #707070;}
+.postcontent p  {margin: 0px;}
+.postcontent hr {color: #707070;}
+.postcontent code {}
 .postcontent blockquote {
 	color: #707070;
 	padding-left: 5px;
 	border-left: 3px solid #707070;
 }
-
-hr {
-	color: #C81C26;
-}
+hr {color: #C81C26;}

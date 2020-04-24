@@ -36,7 +36,6 @@ a, a:active, a:visited {
 	display: inline-block;
 	color: transparent;
 }
-
 .icon.add {background-image: url("icons/red/add.png");}
 .icon.edit {background-image: url("icons/red/edit.png");}
 .icon.back {background-image: url("icons/red/back.png");}
@@ -68,7 +67,6 @@ h4 {
 	font-size: 16px;
 	font-weight: bold;
 }
-
 #overlay {
 	position: absolute;
 	width: 100vw;
@@ -96,7 +94,6 @@ h4 {
 #overlay table tr td:nth-child(1) {
 	width: 120px;
 }
-
 .logo {
 	height: 40px;
 }
@@ -172,7 +169,6 @@ h4 {
 .post a {
 	font-style: normal;
 }
-
 .options:hover span a {
 	display: inherit !important;
 }
