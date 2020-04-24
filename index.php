@@ -5,10 +5,8 @@
 	if (!defined(__DIR__)) define(__DIR__, dirname(__FILE__));
 	include __DIR__."/dbcon.php";
 	date_default_timezone_set("UTC"); //Overrides default Europe/Copenhagen (PHP throws errors that it is invalid)
-	
 	$url = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 	if(isset($_SESSION["prevpage"]) && isset($_SESSION["prevpage"][1])) {
-		
 		if($url != $_SESSION["prevpage"][1]) {
 						   $prevpage = $_SESSION["prevpage"][1];
 			$_SESSION["prevpage"][0] = $_SESSION["prevpage"][1];
@@ -20,7 +18,6 @@
 		$_SESSION["prevpage"][] = $url;
 		$_SESSION["prevpage"][] = $url;
 	}
-
 	// Prevent URLs to be moved or overwritten in the URL-array
 	function ignoreRedirect() {
 		global $prevpage;
@@ -47,7 +44,6 @@
 				$page = preg_replace("/documents/", "", $page);
 			}
 		else echo "INGEN ADGANGSREGLER FOR DENNE TYPE!";
-		
 		$userAccessLevel = mysqli_fetch_assoc(mysqli_query($conn, "SELECT `permission` FROM `employees` WHERE `id` = ".$_SESSION['user']))["permission"];
 		$accessCheck = mysqli_query($conn, "SELECT * FROM `permissions` WHERE path LIKE '%".$page."%' AND `blocktype` LIKE '".$blocktype."'");
 		if($userAccessLevel == -1) return true;
@@ -60,7 +56,6 @@
 			exit; //Prevent furthure loading of the page
 		}
 	}
-
 	// Convert blocktypeid to words
 	function blocktotext($string) {
 		switch ($string) {
@@ -71,7 +66,6 @@
 			default: return 'kategori';
 		}
 	}
-
 	function cookie_files() {
 		global $conn;
 		$lastfolder = "";
@@ -84,7 +78,6 @@
 			}
 	}
 	if(isset($_GET["post"])) cookie_files();
-
 	// Construct page
 											include_once "header.php";
 	if(isset($_SESSION["user"])) {

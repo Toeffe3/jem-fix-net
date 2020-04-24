@@ -6,7 +6,6 @@
 	$cykliskpost = mysqli_query($conn, "SELECT * FROM `posts` INNER JOIN `employees` ON `userid` = `id` WHERE `from` = 1");
 	$leaderpost = mysqli_query($conn, "SELECT * FROM `posts` INNER JOIN `employees` ON `userid` = `id` WHERE `from` = 2");
 	$minbutik = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM `posts` WHERE `post` = 0 LIMIT 1"));
-
 	$pins = mysqli_query($conn, "SELECT * FROM `pinned` WHERE `userid` = ".$_SESSION["user"]);
 ?>
 <div id="page" class="bg-gray">

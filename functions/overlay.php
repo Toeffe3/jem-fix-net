@@ -1,32 +1,26 @@
 ﻿<?php ?>
-
 <div id="overlay" onclick="window.location.href='<?php echo $prevpage;?>'">
 	<form method="post" action="<?php echo $action; ?>" enctype="multipart/form-data" onclick="event.stopPropagation()">
 		<table>
 			<?php foreach($inputs as $key => $value) {
 				$key = preg_replace("/\@\d*/","",$key);
-
 				switch($value[0]) {
 					case "info":
 						echo '<tr><td colspan="2">'.$value[1].'</td></tr>';
 						break;
-
 					case "select":
 						echo "<tr><td>".$value[2].': </td><td><select name="'.$key.'">';
 						foreach($value[1] as $okey => $option) echo '<option value="'.$okey.'">'.$option.'</option>';
 						echo '</select>'.($value[3]==1?"*":"").'<td></tr>';
 						break;
-
 					case "multiselect":
 						echo "<tr><td>".$value[2].': </td><td><select multiple name="'.$key.'[]">';
 						foreach($value[1] as $okey => $option) echo '<option value="'.$okey.'">'.$option.'</option>';
 						echo '</select>'.($value[3]==1?"*":"").'<td></tr>';
 						break;
-
 					case "textarea":
 						echo '<tr><td>'.$value[2].': </td></tr><tr><td colspan="2"><textarea name="'.$key.'">'.$value[1].'</textarea></td></tr>';
 						break;
-
 					case "richtext":
 						$enablerichscript = true;
 						echo'<tr><td>'.$value[2].': </td></tr><tr><td colspan="2"><div style="display: grid; grid-template-columns: repeat(10, 1fr);">'.
@@ -41,7 +35,6 @@
 							'<img src="assets/icons/red/link.png" height="50px" onclick="file()" />'.
 						'</div></td></tr><tr><td colspan="2"><textarea class="rich" name="'.$key.'">'.$value[1].'</textarea></td></tr>';
 						break;
-
 					case "fileexplorer":
 						$lastfolder = "";
 						echo "<tr><td colspan='2'><div style='max-height:300px;overflow-y:scroll'>";
@@ -55,19 +48,16 @@
 						}
 						echo "</td></tr>";
 						break;
-
 					default:
 						echo "<tr>".($value[2]==""?"":"<td>".$value[2].": </td>").'<td'.($value[2]==""?" colspan=2":"").'><input type="'.$value[0].'" name="'.$key.'" value="'.$value[1].'" placeholder="'.$value[2].'" '.($value[3]==1?"required":"").'" '.(!empty($value[4])?"max=".$value[4]." ":"".!empty($value[5])?"min=".$value[5]:"").'/>'.($value[3]==1?"*":"").'</td></tr>';
 						break;
 				}
-
 			}?>
 		</table>
 	</form>
 </div>
 <?php if(isset($enablerichscript)) { ?>
 	<script type="text/javascript">
-
 		function bold()		{insertAround("\\*\\*");}
 		function italic()	{insertAround("\\_");}
 		function highlight(){insertAround("``");}
@@ -77,14 +67,12 @@
 		function ul()		{insertAround("\n?  * ", "\n?", [5,5]);}
 		function ol()		{insertAround("\n?  x. ", "\n?", [6,6]);}
 		function file()		{link(requestFile());}
-
 		var rte = document.getElementsByClassName('rich')[0];
 		rte.onblur = function() {
 			dir = rte.selectionStart<rte.selectionEnd,
 			sel = [dir?rte.selectionStart:rte.selectionEnd, !dir?rte.selectionStart:rte.selectionEnd],
 			txt = [rte.value.slice(0,sel[0]),rte.value.slice(sel[0],sel[1]),rte.value.slice(sel[1])];
 		}
-
 		function insertAround(regexpbefore, regexpafter=regexpbefore, offset = undefined, chars = [regexpbefore.replace(/\\/g,"").replace(/\?/g,""),regexpafter.replace(/\\/g,"").replace(/\?/g,"")]) {
 			let r=[new RegExp(regexpbefore+"( *?)$"),new RegExp(regexpbefore+"(.*?)"+regexpafter),new RegExp("^( *?)"+regexpafter)];
 			if(txt[0].match(r[0])&&txt[2].match(r[2])){rte.value=txt[0].replace(r[0],"$1")+txt[1]+txt[2].replace(r[2],"$1");offset?"":offset=[-chars[0].length,-chars[1].length]}
@@ -94,7 +82,6 @@
 			rte.selectionStart=sel[0]+offset[0];
 			rte.selectionEnd=sel[1]+offset[1];
 		}
-
 		function requestFile() {
 			let files = {};
 			document.cookie.split("; ").forEach((elem) => {let t = elem.split("="); t[0].match(/^SSF_.+/) ? files[t[0].replace(/^SSF_/,"")] = decodeURIComponent((t[1]).replace(/\+/g, '%20')).split("/") : 0;});

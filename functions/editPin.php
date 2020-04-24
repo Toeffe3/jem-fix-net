@@ -1,6 +1,5 @@
 <?php
 	haveAccessTo(__FILE__);
-
 	switch ($_GET["pin"]) {
 		case 'new':
 			$functions = [
@@ -13,7 +12,6 @@
 				"?document=remove" => "Slet dokument",
 				"?users=edit" => "ret en bruger",
 			];
-
 			$action = $url;
 			$inputs = [
 				["info", "Opret en genvej til en fil eller side."],
@@ -24,7 +22,6 @@
 				"redirect" => ["hidden",$prevpage, "", 0],
 				"submit" => ["submit", "Opret", "", 0]
 			];
-
 			if($_POST["submit"]) {
 				if(!empty($_POST["ulink"]) && !empty($_POST["name"])) {
 					$link = $_POST["ulink"];
@@ -33,16 +30,13 @@
 					$link = $_POST["flink"];
 					$name = $functions[$link];
 				}
-
-				mysqli_query($conn, "INSERT INTO `pinned` (`userid`, `link`, `customlabel`) VALUES ('".$_SESSION["user"]."', '".$link."', '".$name."')");
+				mysqli_query($conn,"INSERT INTO `pinned` (`userid`, `link`, `customlabel`) VALUES ('".$_SESSION["user"]."', '".$link."', '".$name."')");
 				echo "<script>window.location.href='".$_POST["redirect"]."'</script>";
 			}
 			break;
-
 		case 'delete':
 			mysqli_query($conn, "DELETE FROM `pinned` WHERE `reference` = ".$_GET["id"]);
 			echo "<script>window.location.href='".$_POST["redirect"]."'</script>";
 			break;
 	}
-
 	include_once "overlay.php";
